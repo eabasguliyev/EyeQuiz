@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EyeQuiz.Entities;
+using Guna.UI2.WinForms;
 
 namespace EyeQuiz.UCQuiz
 {
@@ -14,6 +16,7 @@ namespace EyeQuiz.UCQuiz
     {
         public UserControl LastUc;
         public int QuestionCounter = 0;
+        public List<QuestionBlock> Questions { get; set; }
         public UCCreateNewQuestion()
         {
             InitializeComponent();
@@ -91,6 +94,39 @@ namespace EyeQuiz.UCQuiz
         {
             this.PanelQuestions.Controls.Clear();
             QuestionCounter = 0;
+        }
+
+        private void ButtonSave_Click(object sender, EventArgs e)
+        {
+            CreateNewQuestionList();
+        }
+
+        private void CreateNewQuestionList()
+        {
+            Questions.Clear();
+
+            for (var i = 0; i < this.PanelQuestions.Controls.Count; i++)
+            {
+                var ucNewQuestion = this.PanelQuestions.Controls[i];
+
+                var newQuestionBlock = new QuestionBlock();
+
+                newQuestionBlock.Text = ucNewQuestion.Controls["TextBoxQuestion"].Text;
+
+                for (int j = 0; j < ucNewQuestion.Controls["PanelAnswers"].Controls.Count; j++)
+                {
+                    if (ucNewQuestion.Controls["PanelAnswers"].Controls[j] is Guna2TextBox textBox)
+                    {
+                        var newAnswer = new Answer { Text = textBox.Text };
+
+                        if (!(this.Controls["PanelRadioButtons"].Controls[j] is Guna2CustomRadioButton rd)) continue;
+
+                        newAnswer.IsCorrect = rd.Checked ? "Yes" : "No";
+                    }
+                }
+
+                Questions.Add(newQuestionBlock);
+            }
         }
     }
 }

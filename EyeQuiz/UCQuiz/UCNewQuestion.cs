@@ -26,7 +26,7 @@ namespace EyeQuiz.UCQuiz
 
         private void ChangeRadioButtonsColor(Guna2CustomRadioButton rd)
         {
-            foreach (Control control in this.PanelAnswers.Controls)
+            foreach (Control control in this.Controls["PanelRadioButtons"].Controls)
             {
                 if (control is Guna2CustomRadioButton radioButton)
                 {
@@ -70,6 +70,11 @@ namespace EyeQuiz.UCQuiz
                 .Controls["UCCreateNewQuestion"] as UCCreateNewQuestion;
 
             uc?.ChangeQuestionsNo();
+        }
+
+        private void UCNewQuestion_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -49,6 +49,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstracts\Id.cs" />
+    <Compile Include="Entities\Answer.cs" />
+    <Compile Include="Entities\QuestionBlock.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,5 +199,6 @@
   <ItemGroup>
     <None Include="Resources\remove_red_100px.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

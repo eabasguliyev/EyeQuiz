@@ -41,8 +41,10 @@ namespace EyeQuiz.UCQuiz
             this.TextBoxAnswer1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.LabelQuestionNo = new System.Windows.Forms.Label();
             this.PictureBoxRemove = new System.Windows.Forms.PictureBox();
+            this.PanelRadioButtons = new System.Windows.Forms.Panel();
             this.PanelAnswers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxRemove)).BeginInit();
+            this.PanelRadioButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // TextBoxQuestion
@@ -77,7 +79,7 @@ namespace EyeQuiz.UCQuiz
             this.RadioButtonAnswer1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.RadioButtonAnswer1.CheckedState.InnerColor = System.Drawing.Color.White;
             this.RadioButtonAnswer1.CheckedState.Parent = this.RadioButtonAnswer1;
-            this.RadioButtonAnswer1.Location = new System.Drawing.Point(20, 34);
+            this.RadioButtonAnswer1.Location = new System.Drawing.Point(12, 30);
             this.RadioButtonAnswer1.Name = "RadioButtonAnswer1";
             this.RadioButtonAnswer1.ShadowDecoration.Parent = this.RadioButtonAnswer1;
             this.RadioButtonAnswer1.Size = new System.Drawing.Size(20, 21);
@@ -92,16 +94,12 @@ namespace EyeQuiz.UCQuiz
             // PanelAnswers
             // 
             this.PanelAnswers.Controls.Add(this.TextBoxAnswer4);
-            this.PanelAnswers.Controls.Add(this.RadioButtonAnswer4);
             this.PanelAnswers.Controls.Add(this.TextBoxAnswer3);
-            this.PanelAnswers.Controls.Add(this.RadioButtonAnswer3);
             this.PanelAnswers.Controls.Add(this.TextBoxAnswer2);
-            this.PanelAnswers.Controls.Add(this.RadioButtonAnswer2);
             this.PanelAnswers.Controls.Add(this.TextBoxAnswer1);
-            this.PanelAnswers.Controls.Add(this.RadioButtonAnswer1);
-            this.PanelAnswers.Location = new System.Drawing.Point(21, 143);
+            this.PanelAnswers.Location = new System.Drawing.Point(79, 143);
             this.PanelAnswers.Name = "PanelAnswers";
-            this.PanelAnswers.Size = new System.Drawing.Size(687, 284);
+            this.PanelAnswers.Size = new System.Drawing.Size(629, 284);
             this.PanelAnswers.TabIndex = 2;
             // 
             // TextBoxAnswer4
@@ -118,7 +116,7 @@ namespace EyeQuiz.UCQuiz
             this.TextBoxAnswer4.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.TextBoxAnswer4.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.TextBoxAnswer4.HoverState.Parent = this.TextBoxAnswer4;
-            this.TextBoxAnswer4.Location = new System.Drawing.Point(58, 209);
+            this.TextBoxAnswer4.Location = new System.Drawing.Point(13, 210);
             this.TextBoxAnswer4.Multiline = true;
             this.TextBoxAnswer4.Name = "TextBoxAnswer4";
             this.TextBoxAnswer4.PasswordChar = '\0';
@@ -135,7 +133,7 @@ namespace EyeQuiz.UCQuiz
             this.RadioButtonAnswer4.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.RadioButtonAnswer4.CheckedState.InnerColor = System.Drawing.Color.White;
             this.RadioButtonAnswer4.CheckedState.Parent = this.RadioButtonAnswer4;
-            this.RadioButtonAnswer4.Location = new System.Drawing.Point(20, 229);
+            this.RadioButtonAnswer4.Location = new System.Drawing.Point(12, 225);
             this.RadioButtonAnswer4.Name = "RadioButtonAnswer4";
             this.RadioButtonAnswer4.ShadowDecoration.Parent = this.RadioButtonAnswer4;
             this.RadioButtonAnswer4.Size = new System.Drawing.Size(20, 21);
@@ -161,7 +159,7 @@ namespace EyeQuiz.UCQuiz
             this.TextBoxAnswer3.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.TextBoxAnswer3.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.TextBoxAnswer3.HoverState.Parent = this.TextBoxAnswer3;
-            this.TextBoxAnswer3.Location = new System.Drawing.Point(58, 144);
+            this.TextBoxAnswer3.Location = new System.Drawing.Point(13, 145);
             this.TextBoxAnswer3.Multiline = true;
             this.TextBoxAnswer3.Name = "TextBoxAnswer3";
             this.TextBoxAnswer3.PasswordChar = '\0';
@@ -178,7 +176,7 @@ namespace EyeQuiz.UCQuiz
             this.RadioButtonAnswer3.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.RadioButtonAnswer3.CheckedState.InnerColor = System.Drawing.Color.White;
             this.RadioButtonAnswer3.CheckedState.Parent = this.RadioButtonAnswer3;
-            this.RadioButtonAnswer3.Location = new System.Drawing.Point(20, 164);
+            this.RadioButtonAnswer3.Location = new System.Drawing.Point(12, 160);
             this.RadioButtonAnswer3.Name = "RadioButtonAnswer3";
             this.RadioButtonAnswer3.ShadowDecoration.Parent = this.RadioButtonAnswer3;
             this.RadioButtonAnswer3.Size = new System.Drawing.Size(20, 21);
@@ -204,7 +202,7 @@ namespace EyeQuiz.UCQuiz
             this.TextBoxAnswer2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.TextBoxAnswer2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.TextBoxAnswer2.HoverState.Parent = this.TextBoxAnswer2;
-            this.TextBoxAnswer2.Location = new System.Drawing.Point(58, 79);
+            this.TextBoxAnswer2.Location = new System.Drawing.Point(13, 80);
             this.TextBoxAnswer2.Multiline = true;
             this.TextBoxAnswer2.Name = "TextBoxAnswer2";
             this.TextBoxAnswer2.PasswordChar = '\0';
@@ -221,7 +219,7 @@ namespace EyeQuiz.UCQuiz
             this.RadioButtonAnswer2.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.RadioButtonAnswer2.CheckedState.InnerColor = System.Drawing.Color.White;
             this.RadioButtonAnswer2.CheckedState.Parent = this.RadioButtonAnswer2;
-            this.RadioButtonAnswer2.Location = new System.Drawing.Point(20, 99);
+            this.RadioButtonAnswer2.Location = new System.Drawing.Point(12, 95);
             this.RadioButtonAnswer2.Name = "RadioButtonAnswer2";
             this.RadioButtonAnswer2.ShadowDecoration.Parent = this.RadioButtonAnswer2;
             this.RadioButtonAnswer2.Size = new System.Drawing.Size(20, 21);
@@ -247,7 +245,7 @@ namespace EyeQuiz.UCQuiz
             this.TextBoxAnswer1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.TextBoxAnswer1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.TextBoxAnswer1.HoverState.Parent = this.TextBoxAnswer1;
-            this.TextBoxAnswer1.Location = new System.Drawing.Point(58, 14);
+            this.TextBoxAnswer1.Location = new System.Drawing.Point(13, 15);
             this.TextBoxAnswer1.Multiline = true;
             this.TextBoxAnswer1.Name = "TextBoxAnswer1";
             this.TextBoxAnswer1.PasswordChar = '\0';
@@ -280,18 +278,32 @@ namespace EyeQuiz.UCQuiz
             this.PictureBoxRemove.MouseEnter += new System.EventHandler(this.PictureBoxRemove_MouseEnter);
             this.PictureBoxRemove.MouseLeave += new System.EventHandler(this.PictureBoxRemove_MouseLeave);
             // 
+            // PanelRadioButtons
+            // 
+            this.PanelRadioButtons.Controls.Add(this.RadioButtonAnswer1);
+            this.PanelRadioButtons.Controls.Add(this.RadioButtonAnswer2);
+            this.PanelRadioButtons.Controls.Add(this.RadioButtonAnswer4);
+            this.PanelRadioButtons.Controls.Add(this.RadioButtonAnswer3);
+            this.PanelRadioButtons.Location = new System.Drawing.Point(30, 147);
+            this.PanelRadioButtons.Name = "PanelRadioButtons";
+            this.PanelRadioButtons.Size = new System.Drawing.Size(49, 265);
+            this.PanelRadioButtons.TabIndex = 10;
+            // 
             // UCNewQuestion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.Controls.Add(this.PanelRadioButtons);
             this.Controls.Add(this.TextBoxQuestion);
             this.Controls.Add(this.PictureBoxRemove);
             this.Controls.Add(this.LabelQuestionNo);
             this.Controls.Add(this.PanelAnswers);
             this.Name = "UCNewQuestion";
             this.Size = new System.Drawing.Size(724, 442);
+            this.Load += new System.EventHandler(this.UCNewQuestion_Load);
             this.PanelAnswers.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxRemove)).EndInit();
+            this.PanelRadioButtons.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -311,5 +323,6 @@ namespace EyeQuiz.UCQuiz
         private Guna.UI2.WinForms.Guna2TextBox TextBoxAnswer1;
         private System.Windows.Forms.Label LabelQuestionNo;
         private System.Windows.Forms.PictureBox PictureBoxRemove;
+        private System.Windows.Forms.Panel PanelRadioButtons;
     }
 }
