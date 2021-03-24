@@ -13,15 +13,11 @@ namespace EyeQuiz.UCQuiz
 {
     public partial class UCNewQuestion : UserControl
     {
+        public bool Changed { get; set; }
+        public int QuestionNo { get; set; }
         public UCNewQuestion()
         {
             InitializeComponent();
-        }
-
-        private void TextBoxQuestion_TextChanged(object sender, EventArgs e)
-        {
-            if (sender is Guna2TextBox textBox)
-                textBox.ForeColor = Color.Black;
         }
 
         private void ChangeRadioButtonsColor(Guna2CustomRadioButton rd)
@@ -47,10 +43,10 @@ namespace EyeQuiz.UCQuiz
 
         private void RadioButtonAnswer1_CheckedChanged(object sender, EventArgs e)
         {
-            if (sender is Guna2CustomRadioButton rd)
-            {
-                ChangeRadioButtonsColor(rd);
-            }
+            if (!(sender is Guna2CustomRadioButton rd)) return;
+            
+            ChangeRadioButtonsColor(rd);
+            Changed = true;
         }
 
         private void PictureBoxRemove_MouseEnter(object sender, EventArgs e)
@@ -70,11 +66,28 @@ namespace EyeQuiz.UCQuiz
                 .Controls["UCCreateNewQuestion"] as UCCreateNewQuestion;
 
             uc?.ChangeQuestionsNo();
+
+            try
+            {
+                uc?.RemoveQuestionFromList(QuestionNo - 1);
+            }
+            catch
+            {
+                // ignored
+            }
         }
 
         private void UCNewQuestion_Load(object sender, EventArgs e)
         {
 
+        }
+        
+        private void TextBoxQuestion_TextChanged(object sender, EventArgs e)
+        {
+            if (sender is Guna2TextBox textBox)
+                textBox.ForeColor = Color.Black;
+
+            Changed = true;
         }
     }
 }

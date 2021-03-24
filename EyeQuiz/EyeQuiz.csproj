@@ -52,6 +52,7 @@
     <Compile Include="Abstracts\Id.cs" />
     <Compile Include="Entities\Answer.cs" />
     <Compile Include="Entities\QuestionBlock.cs" />
+    <Compile Include="AppException\QuestionException.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
