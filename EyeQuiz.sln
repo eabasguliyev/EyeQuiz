@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EyeQuiz", "EyeQuiz\EyeQuiz.csproj", "{AD2F39FE-0690-4C97-BF4A-C43FBCC27518}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AD2F39FE-0690-4C97-BF4A-C43FBCC27518}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD2F39FE-0690-4C97-BF4A-C43FBCC27518}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD2F39FE-0690-4C97-BF4A-C43FBCC27518}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD2F39FE-0690-4C97-BF4A-C43FBCC27518}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3359EFA5-9FBA-4F39-BAB8-F7BAB9E9B104}
+	EndGlobalSection
+EndGlobal
