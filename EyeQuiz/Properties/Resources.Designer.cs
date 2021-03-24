@@ -63,6 +63,36 @@ namespace EyeQuiz.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap back_to_100px {
+            get {
+                object obj = ResourceManager.GetObject("back_to_100px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap back_to_light_100px {
+            get {
+                object obj = ResourceManager.GetObject("back_to_light_100px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap checklist_96px {
+            get {
+                object obj = ResourceManager.GetObject("checklist_96px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap close_window_26px {
             get {
                 object obj = ResourceManager.GetObject("close_window_26px", resourceCulture);
@@ -83,9 +113,29 @@ namespace EyeQuiz.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap create_500px {
+            get {
+                object obj = ResourceManager.GetObject("create_500px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap drag_26px {
             get {
                 object obj = ResourceManager.GetObject("drag_26px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap drag_reorder_500px {
+            get {
+                object obj = ResourceManager.GetObject("drag_reorder_500px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,6 +163,16 @@ namespace EyeQuiz.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap leaderboard_500px {
+            get {
+                object obj = ResourceManager.GetObject("leaderboard_500px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap macos_minimize_24px {
             get {
                 object obj = ResourceManager.GetObject("macos_minimize_24px", resourceCulture);
@@ -126,6 +186,36 @@ namespace EyeQuiz.Properties {
         internal static System.Drawing.Bitmap minimize_window_green_50px {
             get {
                 object obj = ResourceManager.GetObject("minimize_window_green_50px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap question_mark_500px {
+            get {
+                object obj = ResourceManager.GetObject("question_mark_500px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap remove_100px {
+            get {
+                object obj = ResourceManager.GetObject("remove_100px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap remove_red_100px {
+            get {
+                object obj = ResourceManager.GetObject("remove_red_100px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

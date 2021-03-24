@@ -64,6 +64,7 @@ namespace EyeQuiz.UCUserAccess
             this.ButtonLogin.Size = new System.Drawing.Size(292, 45);
             this.ButtonLogin.TabIndex = 4;
             this.ButtonLogin.Text = "Login";
+            this.ButtonLogin.Click += new System.EventHandler(this.ButtonLogin_Click);
             // 
             // TextBoxPassword
             // 

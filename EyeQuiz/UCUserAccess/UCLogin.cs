@@ -22,19 +22,20 @@ namespace EyeQuiz.UCUserAccess
 
         private void UCLogin_Load(object sender, EventArgs e)
         {
-            Form1.Obj.Controls["PanelFormLeft"].Controls["label1"].Text = "Login";
-            Form1.Obj.Controls["PanelFormLeft"].Controls["LabelNote"].Text = @"Hello, Let's get started!";
-            Form1.Obj.Controls["PanelFormLeft"].Controls["PanelInner"].Controls["label2"].Text = "You don't have any account?";
-            Form1.Obj.Controls["PanelFormLeft"].Controls["PanelInner"].Controls["LabelSwitch"].Text = "Create account";
-            Form1.Obj.Controls["PanelFormLeft"].Controls["PanelInner"].Controls["LabelSwitch"].Click += LabelSwitch_Click;
+            Form1.Instance.Text = "Login";
+            Form1.Instance.Controls["PanelFormLeft"].Controls["label1"].Text = "Login";
+            Form1.Instance.Controls["PanelFormLeft"].Controls["LabelNote"].Text = @"Hello, Let's get started!";
+            Form1.Instance.Controls["PanelFormLeft"].Controls["PanelInner"].Controls["label2"].Text = "You don't have any account?";
+            Form1.Instance.Controls["PanelFormLeft"].Controls["PanelInner"].Controls["LabelSwitch"].Text = "Create account";
+            Form1.Instance.Controls["PanelFormLeft"].Controls["PanelInner"].Controls["LabelSwitch"].Click += LabelSwitch_Click;
         }
 
         private void LabelSwitch_Click(object sender, EventArgs e)
         {
             var signUp = new UCSignUp();
-            Form1.Obj.Controls["PanelUcArea"].Controls["UCLogin"].Dispose();
-            Form1.Obj.Controls["PanelUcArea"].Controls.Add(signUp);
-            Form1.Obj.Controls["PanelFormLeft"].Controls["PanelInner"].Controls["LabelSwitch"].Click -= LabelSwitch_Click;
+            Form1.Instance.Controls["PanelUcArea"].Controls["UCLogin"].Dispose();
+            Form1.Instance.Controls["PanelUcArea"].Controls.Add(signUp);
+            Form1.Instance.Controls["PanelFormLeft"].Controls["PanelInner"].Controls["LabelSwitch"].Click -= LabelSwitch_Click;
         }
 
         private void TextBoxEmail_TextChanged(object sender, EventArgs e)
@@ -57,6 +58,17 @@ namespace EyeQuiz.UCUserAccess
             }
 
             _visible = !_visible;
+        }
+
+        private void ButtonLogin_Click(object sender, EventArgs e)
+        {
+            var form2 = new Form2();
+
+            Form1.Instance.Hide();
+
+            form2.ShowDialog();
+
+            Form1.Instance.Show();
         }
     }
 }

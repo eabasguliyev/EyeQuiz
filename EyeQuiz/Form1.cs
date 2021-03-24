@@ -9,7 +9,7 @@ namespace EyeQuiz
     public partial class Form1 : Form
     {
 
-        public static Form1 Obj;
+        private static Form1 Obj;
 
         public static Form1 Instance => Obj ?? (Obj = new Form1());
 
@@ -69,7 +69,7 @@ namespace EyeQuiz
         {
             Obj = this;
             var login = new UCLogin();
-            Form1.Obj.Controls["PanelUcArea"].Controls.Add(login);
+            Form1.Instance.Controls["PanelUcArea"].Controls.Add(login);
         }
     }
 }

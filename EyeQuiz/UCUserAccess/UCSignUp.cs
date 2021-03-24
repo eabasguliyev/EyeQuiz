@@ -16,20 +16,21 @@ namespace EyeQuiz.UCUserAccess
 
         private void UCSignUp_Load(object sender, EventArgs e)
         {
-            Form1.Obj.Controls["PanelFormLeft"].Controls["label1"].Text = "Sign Up";
-            Form1.Obj.Controls["PanelFormLeft"].Controls["LabelNote"].Text = @"Get started in a few clicks 
+            Form1.Instance.Text = "Sign Up";
+            Form1.Instance.Controls["PanelFormLeft"].Controls["label1"].Text = "Sign Up";
+            Form1.Instance.Controls["PanelFormLeft"].Controls["LabelNote"].Text = @"Get started in a few clicks 
 and create or take quiz.";
-            Form1.Obj.Controls["PanelFormLeft"].Controls["PanelInner"].Controls["label2"].Text = "Have an account?";
-            Form1.Obj.Controls["PanelFormLeft"].Controls["PanelInner"].Controls["LabelSwitch"].Text = "Login";
-            Form1.Obj.Controls["PanelFormLeft"].Controls["PanelInner"].Controls["LabelSwitch"].Click += LabelSwitch_Click;
+            Form1.Instance.Controls["PanelFormLeft"].Controls["PanelInner"].Controls["label2"].Text = "Have an account?";
+            Form1.Instance.Controls["PanelFormLeft"].Controls["PanelInner"].Controls["LabelSwitch"].Text = "Login";
+            Form1.Instance.Controls["PanelFormLeft"].Controls["PanelInner"].Controls["LabelSwitch"].Click += LabelSwitch_Click;
         }
         private void LabelSwitch_Click(object sender, EventArgs e)
         {
             var login = new UCLogin();
-            Form1.Obj.Controls["PanelUcArea"].Controls["UCSignUp"].Dispose();
-            Form1.Obj.Controls["PanelUcArea"].Controls.Add(login);
+            Form1.Instance.Controls["PanelUcArea"].Controls["UCSignUp"].Dispose();
+            Form1.Instance.Controls["PanelUcArea"].Controls.Add(login);
 
-            Form1.Obj.Controls["PanelFormLeft"].Controls["PanelInner"].Controls["LabelSwitch"].Click -= LabelSwitch_Click;
+            Form1.Instance.Controls["PanelFormLeft"].Controls["PanelInner"].Controls["LabelSwitch"].Click -= LabelSwitch_Click;
         }
 
         private void PictureBoxPasswordVisibility_Click(object sender, EventArgs e)
