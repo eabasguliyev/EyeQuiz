@@ -5,6 +5,7 @@ using System.IO;
 using System.Windows.Forms;
 using EyeQuiz.AppExceptions;
 using EyeQuiz.Entities;
+using EyeQuiz.Helpers;
 using EyeQuiz.Helpers.FileHelpers;
 using Guna.UI2.WinForms;
 
@@ -272,7 +273,7 @@ namespace EyeQuiz.UCQuiz
             if (String.IsNullOrWhiteSpace(questionTextBox?.Text))
             {
                 status = false;
-                SetNewToolTip(questionTextBox, ToolTips[index][0], "Question", "Question text can not be empty!");
+                UxHelper.SetNewToolTip(questionTextBox, ToolTips[index][0], "Question", "Question text can not be empty!");
 
             }
             else if(ToolTips[index] != null)
@@ -290,7 +291,7 @@ namespace EyeQuiz.UCQuiz
                 if (String.IsNullOrWhiteSpace(textBoxAnswer.Text))
                 {
                     status = false;
-                    SetNewToolTip(textBoxAnswer, ToolTips[index][i + 1], "Answer", "Answer text can not be empty!");
+                    UxHelper.SetNewToolTip(textBoxAnswer, ToolTips[index][i + 1], "Answer", "Answer text can not be empty!");
                 }
                 else
                 {
@@ -311,7 +312,7 @@ namespace EyeQuiz.UCQuiz
                 {
                     var radioButtonAnswer = ucQuestion.Controls["PanelRadioButtons"].Controls[i] as Guna2CustomRadioButton;
 
-                    SetNewToolTip(radioButtonAnswer, ToolTips[index][i + ucQuestion.Controls["PanelAnswers"].Controls.Count + 1], "Correct answer", "You must be select correct answer");
+                    UxHelper.SetNewToolTip(radioButtonAnswer, ToolTips[index][i + ucQuestion.Controls["PanelAnswers"].Controls.Count + 1], "Correct answer", "You must be select correct answer");
                 }
 
                 status = false;
@@ -359,23 +360,6 @@ namespace EyeQuiz.UCQuiz
                 ucNewQuestion.Changed = true;
 
                 this.PanelQuestions.Controls.Add(ucNewQuestion);
-            }
-        }
-        public static void SetNewToolTip(Control control, ToolTip toolTip, string title, string caption)
-        {
-            toolTip.ToolTipTitle = title;
-            toolTip.ToolTipIcon = ToolTipIcon.Error;
-
-            toolTip.SetToolTip(control, caption);
-            
-
-            if (control is Guna2TextBox questionTextBox)
-            {
-                questionTextBox.BorderColor = Color.Red;
-            }
-            else if(control is Guna2CustomRadioButton rd)
-            {
-                rd.UncheckedState.BorderColor = Color.Red;
             }
         }
     }

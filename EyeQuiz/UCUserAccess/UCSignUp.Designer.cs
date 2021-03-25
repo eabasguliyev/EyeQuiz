@@ -55,6 +55,7 @@ namespace EyeQuiz.UCUserAccess
             this.ButtonSignUp.Size = new System.Drawing.Size(292, 45);
             this.ButtonSignUp.TabIndex = 6;
             this.ButtonSignUp.Text = "Create Account";
+            this.ButtonSignUp.Click += new System.EventHandler(this.ButtonSignUp_Click);
             // 
             // TextBoxPassword
             // 

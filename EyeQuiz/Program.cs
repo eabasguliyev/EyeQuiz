@@ -8,6 +8,8 @@ namespace EyeQuiz
 {
     static class Program
     {
+        public static Database Database { get; set; }
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -16,6 +18,9 @@ namespace EyeQuiz
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            Database = new Database();
+
             Application.Run(new Form1());
             //Application.Run(new Form2());
         }

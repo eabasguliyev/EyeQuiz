@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using EyeQuiz.Entities;
 using EyeQuiz.Helpers;
 using EyeQuiz.UCQuiz;
 
@@ -11,6 +12,8 @@ namespace EyeQuiz
         private static Form2 Obj;
 
         public static Form2 Instance => Obj ?? (Obj = new Form2());
+
+        public User User;
 
         public Form2()
         {
@@ -58,6 +61,7 @@ namespace EyeQuiz
 
         private void ButtonLogout_Click(object sender, EventArgs e)
         {
+            this.User = null;
             this.DialogResult = DialogResult.Cancel;
         }
 

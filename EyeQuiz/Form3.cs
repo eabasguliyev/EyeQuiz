@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EyeQuiz.Helpers;
 using EyeQuiz.UCQuiz;
 
 namespace EyeQuiz
@@ -29,12 +30,12 @@ namespace EyeQuiz
         {
             if (String.IsNullOrWhiteSpace(TextBoxFileName.Text))
             {
-                UCCreateNewQuestion.SetNewToolTip(TextBoxFileName, ToolTip, "File Name", "File name can not be empty!");
+                UxHelper.SetNewToolTip(TextBoxFileName, ToolTip, "File Name", "File name can not be empty!");
                 return;
             }
             else if (TextBoxFileName.Text.Contains(".") && !TextBoxFileName.Text.EndsWith(".xml"))
             {
-                UCCreateNewQuestion.SetNewToolTip(TextBoxFileName, ToolTip, "File Name", "File name format is not correct. Only *.xml acceptable.");
+                UxHelper.SetNewToolTip(TextBoxFileName, ToolTip, "File Name", "File name format is not correct. Only *.xml acceptable.");
                 return;
             }
 
