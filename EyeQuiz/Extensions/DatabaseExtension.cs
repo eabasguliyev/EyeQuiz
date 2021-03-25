@@ -6,7 +6,7 @@ namespace EyeQuiz.Extensions
 {
     public static class DatabaseExtension
     {
-        public static void Login(this Database db, string email, string password)
+        public static User Login(this Database db, string email, string password)
         {
             var user = db.Users.SingleOrDefault(u => u.Email == email);
 
@@ -14,10 +14,10 @@ namespace EyeQuiz.Extensions
                 throw new UserNotFoundException($"There is no user associated this email: {email}");
 
 
-            if (user.Password == password)
-                return;
+            if (user.Password != password)
+                throw new PasswordWrongException("Password is wrong!");
 
-            throw new PasswordWrongException("Password is wrong!");
+            return user;
         }
 
         public static void Register(this Database db, User user)

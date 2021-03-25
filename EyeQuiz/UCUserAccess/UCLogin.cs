@@ -8,6 +8,10 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EyeQuiz.AppExceptions;
+using EyeQuiz.Entities;
+using EyeQuiz.Extensions;
+using EyeQuiz.Helpers;
 using Guna.UI2.WinForms;
 
 namespace EyeQuiz.UCUserAccess
@@ -15,9 +19,15 @@ namespace EyeQuiz.UCUserAccess
     public partial class UCLogin : UserControl
     {
         private bool _visible = false;
+        private List<ToolTip> _toolTips;
         public UCLogin()
         {
             InitializeComponent();
+            _toolTips = new List<ToolTip>()
+            {
+                new ToolTip(),
+                new ToolTip(),
+            };
         }
 
         private void UCLogin_Load(object sender, EventArgs e)
@@ -62,17 +72,69 @@ namespace EyeQuiz.UCUserAccess
 
         private void ButtonLogin_Click(object sender, EventArgs e)
         {
+            if (!CheckUserInputs())
+                return;
+
+            var email = TextBoxEmail.Text;
+            var pass = TextBoxPassword.Text;
+
+            User user = null;
+            try
+            {
+                user = Program.Database.Login(email, pass);
+            }
+            catch (UserNotFoundException ex)
+            {
+                UxHelper.SetNewToolTip(TextBoxEmail, _toolTips[0], "Email",
+                    "There is no user associated this email address.");
+                return;
+            }
+            catch (PasswordWrongException ex)
+            {
+                TextBoxEmail.BorderColor = Color.FromArgb(213, 218, 223);
+
+                UxHelper.SetNewToolTip(TextBoxPassword, _toolTips[1], "Password",
+                    "Password is wrong!");
+                return;
+            }
+
             var form2 = new Form2();
+
+            form2.User = user;
 
             Form1.Instance.Hide();
 
             form2.ShowDialog();
 
             Form1.Instance.Show();
-
-            
         }
 
+        private bool CheckUserInputs()
+        {
+            var status = true;
+
+            if (String.IsNullOrWhiteSpace(TextBoxEmail.Text))
+            {
+                UxHelper.SetNewToolTip(TextBoxEmail, _toolTips[0], "Email", "Email address can not be empty");
+                status = false;
+            }
+            else
+            {
+                TextBoxEmail.BorderColor = Color.FromArgb(213, 218, 223);
+            }
+
+            if (String.IsNullOrWhiteSpace(TextBoxPassword.Text))
+            {
+                UxHelper.SetNewToolTip(TextBoxPassword, _toolTips[1], "Password", "Password can not be empty");
+                status = false;
+            }
+            else
+            {
+                TextBoxPassword.BorderColor = Color.FromArgb(213, 218, 223);
+            }
+
+            return status;
+        }
         private void ButtonLoginFb_Click(object sender, EventArgs e)
         {
             //var ucFbLogin = new UCFacebookLogin();
