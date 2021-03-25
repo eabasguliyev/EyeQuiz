@@ -111,12 +111,14 @@ namespace EyeQuiz.UCQuiz
             if (!AddQuestionAndUpdate())
                 return;
 
-            if (!Directory.Exists(@"Questions\"))
+            var dirPath = $@"Questions\{Form2.Instance.User.Guid}\";
+
+            if (!Directory.Exists(dirPath))
             {
-                Directory.CreateDirectory("Questions");
+                Directory.CreateDirectory(dirPath);
             }
 
-            XmlHelper.DirectoryName = @"Questions";
+            XmlHelper.DirectoryName = dirPath;
 
             if (string.IsNullOrWhiteSpace(QuestionsBlock.FileName))
             {

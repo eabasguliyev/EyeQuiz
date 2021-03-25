@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
+using EyeQuiz.Entities;
+using EyeQuiz.Helpers.FileHelpers;
 
 namespace EyeQuiz
 {
@@ -19,10 +19,29 @@ namespace EyeQuiz
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Database = new Database();
+            JsonHelper.FileName = "Database.json";
 
-            Application.Run(new Form1());
-            //Application.Run(new Form2());
+            if (File.Exists(JsonHelper.FileName))
+            {
+                Database = JsonHelper.Deserialize();
+            }
+            else
+            {
+                Database = new Database();
+                Database.Users.Add(new User()
+                {
+                    Fullname = "Elgun Abasquliyev",
+                    Email = "elgun@gmail.com",
+                    Password = "elgun1345",
+
+                });
+            }
+
+            var form2 = new Form2(){User = Database.Users[0]};
+            
+            //Application.Run(new Form1());
+            
+            Application.Run(form2);
         }
     }
 }
