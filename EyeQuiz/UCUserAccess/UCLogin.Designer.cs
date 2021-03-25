@@ -34,6 +34,7 @@ namespace EyeQuiz.UCUserAccess
             this.TextBoxPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.TextBoxEmail = new Guna.UI2.WinForms.Guna2TextBox();
             this.PictureBoxPasswordVisibility = new System.Windows.Forms.PictureBox();
+            this.ButtonLoginFb = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxPasswordVisibility)).BeginInit();
             this.SuspendLayout();
             // 
@@ -128,10 +129,28 @@ namespace EyeQuiz.UCUserAccess
             this.PictureBoxPasswordVisibility.TabStop = false;
             this.PictureBoxPasswordVisibility.Click += new System.EventHandler(this.PictureBoxPasswordVisibility_Click);
             // 
+            // ButtonLoginFb
+            // 
+            this.ButtonLoginFb.CheckedState.Parent = this.ButtonLoginFb;
+            this.ButtonLoginFb.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonLoginFb.CustomImages.Parent = this.ButtonLoginFb;
+            this.ButtonLoginFb.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(114)))), ((int)(((byte)(207)))));
+            this.ButtonLoginFb.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.ButtonLoginFb.ForeColor = System.Drawing.Color.White;
+            this.ButtonLoginFb.HoverState.Parent = this.ButtonLoginFb;
+            this.ButtonLoginFb.Location = new System.Drawing.Point(152, 353);
+            this.ButtonLoginFb.Name = "ButtonLoginFb";
+            this.ButtonLoginFb.ShadowDecoration.Parent = this.ButtonLoginFb;
+            this.ButtonLoginFb.Size = new System.Drawing.Size(292, 45);
+            this.ButtonLoginFb.TabIndex = 9;
+            this.ButtonLoginFb.Text = "Login with Facebook";
+            this.ButtonLoginFb.Click += new System.EventHandler(this.ButtonLoginFb_Click);
+            // 
             // UCLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.Controls.Add(this.ButtonLoginFb);
             this.Controls.Add(this.PictureBoxPasswordVisibility);
             this.Controls.Add(this.LabelForgotPassword);
             this.Controls.Add(this.ButtonLogin);
@@ -153,5 +172,6 @@ namespace EyeQuiz.UCUserAccess
         private Guna.UI2.WinForms.Guna2TextBox TextBoxPassword;
         private Guna.UI2.WinForms.Guna2TextBox TextBoxEmail;
         private System.Windows.Forms.PictureBox PictureBoxPasswordVisibility;
+        private Guna.UI2.WinForms.Guna2Button ButtonLoginFb;
     }
 }

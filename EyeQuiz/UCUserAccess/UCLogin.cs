@@ -69,6 +69,17 @@ namespace EyeQuiz.UCUserAccess
             form2.ShowDialog();
 
             Form1.Instance.Show();
+
+            
+        }
+
+        private void ButtonLoginFb_Click(object sender, EventArgs e)
+        {
+            //var ucFbLogin = new UCFacebookLogin();
+
+            //Form1.Instance.Controls["PanelUcArea"].Controls.Add(ucFbLogin);
+            //ucFbLogin.Login();
+            //ucFbLogin.BringToFront();
         }
     }
 }

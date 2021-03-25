@@ -62,6 +62,7 @@ namespace EyeQuiz.UCQuiz
             // ButtonCreateNex
             // 
             this.ButtonCreateNex.CheckedState.Parent = this.ButtonCreateNex;
+            this.ButtonCreateNex.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonCreateNex.CustomImages.Parent = this.ButtonCreateNex;
             this.ButtonCreateNex.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.ButtonCreateNex.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(114)))), ((int)(((byte)(207)))));
@@ -121,6 +122,7 @@ namespace EyeQuiz.UCQuiz
             // ButtonDragAndDropNext
             // 
             this.ButtonDragAndDropNext.CheckedState.Parent = this.ButtonDragAndDropNext;
+            this.ButtonDragAndDropNext.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonDragAndDropNext.CustomImages.Parent = this.ButtonDragAndDropNext;
             this.ButtonDragAndDropNext.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.ButtonDragAndDropNext.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(114)))), ((int)(((byte)(207)))));
@@ -133,6 +135,7 @@ namespace EyeQuiz.UCQuiz
             this.ButtonDragAndDropNext.Size = new System.Drawing.Size(251, 45);
             this.ButtonDragAndDropNext.TabIndex = 3;
             this.ButtonDragAndDropNext.Text = "Next";
+            this.ButtonDragAndDropNext.Click += new System.EventHandler(this.ButtonDragAndDropNext_Click);
             // 
             // label3
             // 

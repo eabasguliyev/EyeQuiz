@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
-using EyeQuiz.AppException;
+using EyeQuiz.AppExceptions;
 using EyeQuiz.Entities;
+using EyeQuiz.Helpers.FileHelpers;
 using Guna.UI2.WinForms;
 
 namespace EyeQuiz.UCQuiz
@@ -17,14 +14,15 @@ namespace EyeQuiz.UCQuiz
     {
         public UserControl LastUc;
         public int QuestionCounter = 0;
-        public List<QuestionBlock> Questions { get; set; }
+        public bool Loaded = false;
+        public QuestionsBlock QuestionsBlock { get; set; }
 
         private List<List<ToolTip>> ToolTips;
 
         public UCCreateNewQuestion()
         {
             InitializeComponent();
-            Questions = new List<QuestionBlock>();
+            QuestionsBlock = new QuestionsBlock();
             ToolTips = new List<List<ToolTip>>();
         }
 
@@ -40,8 +38,15 @@ namespace EyeQuiz.UCQuiz
 
         private void UCCreateNewQuestion_Load(object sender, EventArgs e)
         {
-            var ucNewQuestion = CreateNewQuestionInstance();
-            this.PanelQuestions.Controls.Add(ucNewQuestion);
+            if (!Loaded)
+            {
+                var ucNewQuestion = CreateNewQuestionInstance();
+                this.PanelQuestions.Controls.Add(ucNewQuestion);
+            }
+            else
+            {
+                LoadQuestions(QuestionsBlock.Questions);
+            }
         }
 
         private void ButtonBack_Click(object sender, EventArgs e)
@@ -97,13 +102,32 @@ namespace EyeQuiz.UCQuiz
         {
             this.PanelQuestions.Controls.Clear();
             QuestionCounter = 0;
-            this.Questions.Clear();
+            this.QuestionsBlock.Questions.Clear();
         }
 
         private void ButtonSave_Click(object sender, EventArgs e)
         {
             if (!AddQuestionAndUpdate())
                 return;
+
+            if (!Directory.Exists(@"Questions\"))
+            {
+                Directory.CreateDirectory("Questions");
+            }
+
+            XmlHelper.DirectoryName = @"Questions";
+
+            if (string.IsNullOrWhiteSpace(QuestionsBlock.FileName))
+            {
+                var getFileNameForm = new Form3();
+
+                if (getFileNameForm.ShowDialog() == DialogResult.Cancel)
+                    return;
+
+                QuestionsBlock.FileName = getFileNameForm.FileName;
+            }
+
+            XmlHelper.Serialize(QuestionsBlock);
         }
 
         private bool AddQuestionAndUpdate()
@@ -115,7 +139,7 @@ namespace EyeQuiz.UCQuiz
                 if (!CheckUserInput(ucLastQuestion))
                     return false;
 
-                if (ucLastQuestion?.Changed == true && QuestionCounter != Questions.Count)
+                if (ucLastQuestion?.Changed == true && QuestionCounter != QuestionsBlock.Questions.Count)
                 {
                     try
                     {
@@ -154,7 +178,7 @@ namespace EyeQuiz.UCQuiz
             }
 
             ucNewQuestion.Changed = false;
-            Questions.Add(newQuestionBlock);
+            QuestionsBlock.Questions.Add(newQuestionBlock);
         }
 
         private void UpdateQuestions()
@@ -165,7 +189,7 @@ namespace EyeQuiz.UCQuiz
 
                 if (ucQuestion?.Changed != true) continue;
 
-                var questionBlock = Questions[i];
+                var questionBlock = QuestionsBlock.Questions[i];
 
                 var textBoxQuestion = ucQuestion.Controls["TextBoxQuestion"] as Guna2TextBox;
 
@@ -193,10 +217,10 @@ namespace EyeQuiz.UCQuiz
 
         public void RemoveQuestionFromList(int index)
         {
-            if (index <= Questions.Count)
+            if (index <= QuestionsBlock.Questions.Count)
                 throw new QuestionException($"There is no question associated this index: {index}");
 
-            Questions.RemoveAt(index);
+            QuestionsBlock.Questions.RemoveAt(index);
         }
 
         private bool CheckUserInput(UCNewQuestion ucQuestion)
@@ -206,20 +230,43 @@ namespace EyeQuiz.UCQuiz
 
             var index = ucQuestion.QuestionNo - 1;
 
-            if (ToolTips.Count == index)
+            if (!Loaded)
             {
-                ToolTips.Add(new List<ToolTip>()
+                if (ToolTips.Count == index)
                 {
-                    new ToolTip(),
-                    new ToolTip(),
-                    new ToolTip(),
-                    new ToolTip(),
-                    new ToolTip(),
-                    new ToolTip(),
-                    new ToolTip(),
-                    new ToolTip(),
-                    new ToolTip(),
-                });
+                    ToolTips.Add(new List<ToolTip>()
+                    {
+                        new ToolTip(),
+                        new ToolTip(),
+                        new ToolTip(),
+                        new ToolTip(),
+                        new ToolTip(),
+                        new ToolTip(),
+                        new ToolTip(),
+                        new ToolTip(),
+                        new ToolTip(),
+                    });
+                }
+            }
+            else
+            {
+                for (int i = 0; i < ucQuestion.QuestionNo; i++)
+                {
+                    ToolTips.Add(new List<ToolTip>()
+                    {
+                        new ToolTip(),
+                        new ToolTip(),
+                        new ToolTip(),
+                        new ToolTip(),
+                        new ToolTip(),
+                        new ToolTip(),
+                        new ToolTip(),
+                        new ToolTip(),
+                        new ToolTip(),
+                    });
+                }
+
+                Loaded = false;
             }
 
             if (String.IsNullOrWhiteSpace(questionTextBox?.Text))
@@ -228,7 +275,7 @@ namespace EyeQuiz.UCQuiz
                 SetNewToolTip(questionTextBox, ToolTips[index][0], "Question", "Question text can not be empty!");
 
             }
-            else if(ToolTips[index][0] != null)
+            else if(ToolTips[index] != null)
             {
                 ToolTips[index][0] = new ToolTip();
 
@@ -281,7 +328,40 @@ namespace EyeQuiz.UCQuiz
             return status;
         }
 
-        private void SetNewToolTip(Control control, ToolTip toolTip, string title, string caption)
+        public void LoadQuestions(List<QuestionBlock> questions)
+        {
+            if (questions == null)
+                throw new ArgumentNullException(nameof(questions));
+
+            foreach (var questionBlock in questions)
+            {
+                var ucNewQuestion = CreateNewQuestionInstance();
+
+                var ucNewQuestionTextBox = ucNewQuestion.Controls["TextBoxQuestion"] as Guna2TextBox;
+
+                ucNewQuestionTextBox.Text = questionBlock.Text;
+
+                
+                for (int i = 0; i < questionBlock.Answers.Count; i++)
+                {
+                    
+                    var answerTextBox = ucNewQuestion.Controls["PanelAnswers"].Controls[i] as Guna2TextBox;
+
+                    answerTextBox.Text = questionBlock.Answers[i].Text;
+
+                    if (questionBlock.Answers[i].IsCorrect == "Yes")
+                    {
+                        var answerRadioButton = ucNewQuestion.Controls["PanelRadioButtons"].Controls[i] as Guna2CustomRadioButton;
+                        answerRadioButton.Checked = true;
+                    }
+                }
+
+                ucNewQuestion.Changed = true;
+
+                this.PanelQuestions.Controls.Add(ucNewQuestion);
+            }
+        }
+        public static void SetNewToolTip(Control control, ToolTip toolTip, string title, string caption)
         {
             toolTip.ToolTipTitle = title;
             toolTip.ToolTipIcon = ToolTipIcon.Error;

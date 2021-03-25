@@ -67,6 +67,7 @@ namespace EyeQuiz.UCQuiz
             // ButtonCreateQuizNext
             // 
             this.ButtonCreateQuizNext.CheckedState.Parent = this.ButtonCreateQuizNext;
+            this.ButtonCreateQuizNext.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonCreateQuizNext.CustomImages.Parent = this.ButtonCreateQuizNext;
             this.ButtonCreateQuizNext.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.ButtonCreateQuizNext.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(114)))), ((int)(((byte)(207)))));
@@ -126,6 +127,7 @@ namespace EyeQuiz.UCQuiz
             // ButtonTakeQuizNext
             // 
             this.ButtonTakeQuizNext.CheckedState.Parent = this.ButtonTakeQuizNext;
+            this.ButtonTakeQuizNext.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonTakeQuizNext.CustomImages.Parent = this.ButtonTakeQuizNext;
             this.ButtonTakeQuizNext.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.ButtonTakeQuizNext.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(114)))), ((int)(((byte)(207)))));
@@ -184,6 +186,7 @@ namespace EyeQuiz.UCQuiz
             // ButtonLeaderboardsNext
             // 
             this.ButtonLeaderboardsNext.CheckedState.Parent = this.ButtonLeaderboardsNext;
+            this.ButtonLeaderboardsNext.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonLeaderboardsNext.CustomImages.Parent = this.ButtonLeaderboardsNext;
             this.ButtonLeaderboardsNext.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.ButtonLeaderboardsNext.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(114)))), ((int)(((byte)(207)))));
@@ -227,7 +230,7 @@ namespace EyeQuiz.UCQuiz
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
             // 
-            // Dashboard
+            // UCDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;

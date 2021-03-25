@@ -46,5 +46,13 @@ namespace EyeQuiz.UCQuiz
         {
 
         }
+
+        private void ButtonDragAndDropNext_Click(object sender, EventArgs e)
+        {
+            var next = new UCDragDrop(){LastUc = this};
+
+            Form2.Instance.Controls["PanelUserControls"].Controls.Add(next);
+            next.BringToFront();
+        }
     }
 }

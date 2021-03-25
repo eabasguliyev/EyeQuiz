@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EyeQuiz.AppException
+namespace EyeQuiz.AppExceptions
 {
     public class QuestionException:ApplicationException
     {
