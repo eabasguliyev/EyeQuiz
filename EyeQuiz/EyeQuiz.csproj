@@ -84,6 +84,7 @@
     <Compile Include="Form3.Designer.cs">
       <DependentUpon>Form3.cs</DependentUpon>
     </Compile>
+    <Compile Include="HashAlgorithms\Sha256.cs" />
     <Compile Include="Helpers\DatabaseHelper.cs" />
     <Compile Include="Helpers\FileHelpers\FileHelper.cs" />
     <Compile Include="Helpers\FileHelpers\JsonHelper.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="Helpers\FormHelper.cs" />
     <Compile Include="Helpers\UserHelper.cs" />
     <Compile Include="Helpers\UxHelper.cs" />
+    <Compile Include="Interfaces\IHash.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UCQuiz\UCCreateNewQuestion.cs">

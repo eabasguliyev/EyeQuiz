@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using EyeQuiz.AppExceptions;
 using EyeQuiz.Entities;
 using EyeQuiz.Extensions;
+using EyeQuiz.HashAlgorithms;
 using EyeQuiz.Helpers;
 using Guna.UI2.WinForms;
 
@@ -75,8 +76,9 @@ namespace EyeQuiz.UCUserAccess
             if (!CheckUserInputs())
                 return;
 
+            var sha256 = new Sha256();
             var email = TextBoxEmail.Text;
-            var pass = TextBoxPassword.Text;
+            var pass = sha256.GetHash(TextBoxPassword.Text);
 
             User user = null;
             try

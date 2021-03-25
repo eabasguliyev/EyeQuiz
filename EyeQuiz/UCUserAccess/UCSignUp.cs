@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
 using EyeQuiz.Entities;
 using EyeQuiz.Extensions;
+using EyeQuiz.HashAlgorithms;
 using EyeQuiz.Helpers;
 
 namespace EyeQuiz.UCUserAccess
@@ -87,11 +89,13 @@ and create or take quiz.";
             if (!CheckUserInputs())
                 return;
 
+            var sha256 = new Sha256();
+
             var user = new User()
             {
                 Fullname = TextBoxFullname.Text,
                 Email =  TextBoxEmail.Text,
-                Password = TextBoxPassword.Text
+                Password = sha256.GetHash(TextBoxPassword.Text),
             };
 
             Program.Database.Register(user);

@@ -2,6 +2,7 @@
 using System.IO;
 using System.Windows.Forms;
 using EyeQuiz.Entities;
+using EyeQuiz.HashAlgorithms;
 using EyeQuiz.Helpers.FileHelpers;
 
 namespace EyeQuiz
@@ -27,21 +28,24 @@ namespace EyeQuiz
             }
             else
             {
+                var sha256 = new Sha256();
                 Database = new Database();
                 Database.Users.Add(new User()
                 {
                     Fullname = "Elgun Abasquliyev",
                     Email = "elgun@gmail.com",
-                    Password = "elgun1345",
+                    Password = sha256.GetHash("elgun1345"),
 
                 });
+
+                JsonHelper.Serialize(Database);
             }
 
-            var form2 = new Form2(){User = Database.Users[0]};
-            
-            //Application.Run(new Form1());
-            
-            Application.Run(form2);
+            Application.Run(new Form1());
+
+
+            //var form2 = new Form2(){User = Database.Users[0]};
+            //Application.Run(form2);
         }
     }
 }
