@@ -9,7 +9,7 @@ namespace EyeQuiz
 {
     static class Program
     {
-        public static Database Database { get; set; }
+        public static Database Database { get; private set; }
 
         /// <summary>
         /// The main entry point for the application.
@@ -26,7 +26,8 @@ namespace EyeQuiz
             {
                 Database = JsonHelper.Deserialize();
             }
-            else
+
+            if (Database == null)
             {
                 var sha256 = new Sha256();
                 Database = new Database();
@@ -41,11 +42,10 @@ namespace EyeQuiz
                 JsonHelper.Serialize(Database);
             }
 
-            Application.Run(new Form1());
+            //Application.Run(new Form1());
 
-
-            //var form2 = new Form2(){User = Database.Users[0]};
-            //Application.Run(form2);
+            var form2 = new Form2() { User = Database.Users[0] };
+            Application.Run(form2);
         }
     }
 }

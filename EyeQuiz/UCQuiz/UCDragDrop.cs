@@ -43,9 +43,9 @@ namespace EyeQuiz.UCQuiz
                 return;
             }
 
-            var fileName = fileNames[0];
+            var filePath = fileNames[0];
 
-            XmlHelper.Deserialize(fileName, QuestionsBlock);
+            XmlHelper.Deserialize(filePath, QuestionsBlock);
 
             var next = new UCCreateNewQuestion() { LastUc = this, 
                 QuestionsBlock =  QuestionsBlock, Loaded = true};

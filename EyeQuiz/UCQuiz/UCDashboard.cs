@@ -17,5 +17,13 @@ namespace EyeQuiz.UCQuiz
             Form2.Instance.Controls["PanelUserControls"].Controls.Add(next);
             next.BringToFront();
         }
+
+        private void ButtonTakeQuizNext_Click(object sender, EventArgs e)
+        {
+            var next = new UCQuizeList() {LastUc = this};
+
+            Form2.Instance.Controls["PanelUserControls"].Controls.Add(next);
+            next.BringToFront();
+        }
     }
 }

@@ -118,8 +118,6 @@ namespace EyeQuiz.UCQuiz
                 Directory.CreateDirectory(dirPath);
             }
 
-            XmlHelper.DirectoryName = dirPath;
-
             if (string.IsNullOrWhiteSpace(QuestionsBlock.FileName))
             {
                 var getFileNameForm = new Form3();
@@ -130,7 +128,9 @@ namespace EyeQuiz.UCQuiz
                 QuestionsBlock.FileName = getFileNameForm.FileName;
             }
 
-            XmlHelper.Serialize(QuestionsBlock);
+            var filePath = FileHelper.GetFilePath(dirPath, QuestionsBlock.FileName);
+
+            XmlHelper.Serialize(filePath, QuestionsBlock);
         }
 
         private bool AddQuestionAndUpdate()

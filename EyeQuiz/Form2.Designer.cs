@@ -37,10 +37,12 @@ namespace EyeQuiz
             this.ButtonDashboard = new Guna.UI2.WinForms.Guna2Button();
             this.PictureBoxMinimize = new System.Windows.Forms.PictureBox();
             this.PictureBoxDrag = new System.Windows.Forms.PictureBox();
+            this.PanelFormTop = new System.Windows.Forms.Panel();
             this.PanelFormLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxDrag)).BeginInit();
+            this.PanelFormTop.SuspendLayout();
             this.SuspendLayout();
             // 
             // PanelUserControls
@@ -130,9 +132,10 @@ namespace EyeQuiz
             // PictureBoxMinimize
             // 
             this.PictureBoxMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PictureBoxMinimize.BackColor = System.Drawing.Color.Transparent;
             this.PictureBoxMinimize.Cursor = System.Windows.Forms.Cursors.Default;
             this.PictureBoxMinimize.Image = global::EyeQuiz.Properties.Resources.macos_minimize_24px;
-            this.PictureBoxMinimize.Location = new System.Drawing.Point(1094, 3);
+            this.PictureBoxMinimize.Location = new System.Drawing.Point(894, 9);
             this.PictureBoxMinimize.Name = "PictureBoxMinimize";
             this.PictureBoxMinimize.Size = new System.Drawing.Size(40, 38);
             this.PictureBoxMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -145,9 +148,10 @@ namespace EyeQuiz
             // PictureBoxDrag
             // 
             this.PictureBoxDrag.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PictureBoxDrag.BackColor = System.Drawing.Color.Transparent;
             this.PictureBoxDrag.Cursor = System.Windows.Forms.Cursors.SizeAll;
             this.PictureBoxDrag.Image = global::EyeQuiz.Properties.Resources.drag_26px;
-            this.PictureBoxDrag.Location = new System.Drawing.Point(1053, 6);
+            this.PictureBoxDrag.Location = new System.Drawing.Point(853, 12);
             this.PictureBoxDrag.Name = "PictureBoxDrag";
             this.PictureBoxDrag.Size = new System.Drawing.Size(36, 33);
             this.PictureBoxDrag.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -157,6 +161,16 @@ namespace EyeQuiz
             this.PictureBoxDrag.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PictureBoxDrag_MouseMove);
             this.PictureBoxDrag.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PictureBoxDrag_MouseUp);
             // 
+            // PanelFormTop
+            // 
+            this.PanelFormTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(34)))), ((int)(((byte)(40)))));
+            this.PanelFormTop.Controls.Add(this.PictureBoxDrag);
+            this.PanelFormTop.Controls.Add(this.PictureBoxMinimize);
+            this.PanelFormTop.Location = new System.Drawing.Point(198, 0);
+            this.PanelFormTop.Name = "PanelFormTop";
+            this.PanelFormTop.Size = new System.Drawing.Size(943, 55);
+            this.PanelFormTop.TabIndex = 10;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -165,8 +179,7 @@ namespace EyeQuiz
             this.ClientSize = new System.Drawing.Size(1139, 710);
             this.Controls.Add(this.PanelFormLeft);
             this.Controls.Add(this.PanelUserControls);
-            this.Controls.Add(this.PictureBoxMinimize);
-            this.Controls.Add(this.PictureBoxDrag);
+            this.Controls.Add(this.PanelFormTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -177,6 +190,7 @@ namespace EyeQuiz
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxDrag)).EndInit();
+            this.PanelFormTop.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -191,5 +205,6 @@ namespace EyeQuiz
         private Guna.UI2.WinForms.Guna2Button ButtonDashboard;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel PanelFormTop;
     }
 }

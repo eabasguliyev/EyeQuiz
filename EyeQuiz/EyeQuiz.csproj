@@ -125,6 +125,12 @@
     <Compile Include="UCQuiz\UCNewQuestion.Designer.cs">
       <DependentUpon>UCNewQuestion.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCQuiz\UCQuizeList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCQuiz\UCQuizeList.Designer.cs">
+      <DependentUpon>UCQuizeList.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCUserAccess\UCFacebookLogin.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -176,6 +182,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCQuiz\UCNewQuestion.resx">
       <DependentUpon>UCNewQuestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCQuiz\UCQuizeList.resx">
+      <DependentUpon>UCQuizeList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCUserAccess\UCFacebookLogin.resx">
       <DependentUpon>UCFacebookLogin.cs</DependentUpon>

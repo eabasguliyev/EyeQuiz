@@ -140,6 +140,7 @@ namespace EyeQuiz.UCQuiz
             this.ButtonTakeQuizNext.Size = new System.Drawing.Size(251, 45);
             this.ButtonTakeQuizNext.TabIndex = 3;
             this.ButtonTakeQuizNext.Text = "Next";
+            this.ButtonTakeQuizNext.Click += new System.EventHandler(this.ButtonTakeQuizNext_Click);
             // 
             // label3
             // 
