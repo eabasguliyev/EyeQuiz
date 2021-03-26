@@ -101,6 +101,7 @@ namespace EyeQuiz.UCQuiz
             this.RadioButtonAnswer4.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.RadioButtonAnswer4.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.RadioButtonAnswer4.UncheckedState.Parent = this.RadioButtonAnswer4;
+            this.RadioButtonAnswer4.CheckedChanged += new System.EventHandler(this.RadioButtonAnswer1_CheckedChanged);
             // 
             // RadioButtonAnswer3
             // 
@@ -119,6 +120,7 @@ namespace EyeQuiz.UCQuiz
             this.RadioButtonAnswer3.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.RadioButtonAnswer3.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.RadioButtonAnswer3.UncheckedState.Parent = this.RadioButtonAnswer3;
+            this.RadioButtonAnswer3.CheckedChanged += new System.EventHandler(this.RadioButtonAnswer1_CheckedChanged);
             // 
             // RadioButtonAnswer2
             // 
@@ -137,6 +139,7 @@ namespace EyeQuiz.UCQuiz
             this.RadioButtonAnswer2.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.RadioButtonAnswer2.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.RadioButtonAnswer2.UncheckedState.Parent = this.RadioButtonAnswer2;
+            this.RadioButtonAnswer2.CheckedChanged += new System.EventHandler(this.RadioButtonAnswer1_CheckedChanged);
             // 
             // RadioButtonAnswer1
             // 
@@ -155,6 +158,7 @@ namespace EyeQuiz.UCQuiz
             this.RadioButtonAnswer1.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.RadioButtonAnswer1.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.RadioButtonAnswer1.UncheckedState.Parent = this.RadioButtonAnswer1;
+            this.RadioButtonAnswer1.CheckedChanged += new System.EventHandler(this.RadioButtonAnswer1_CheckedChanged);
             // 
             // label1
             // 
@@ -204,6 +208,7 @@ namespace EyeQuiz.UCQuiz
             this.Controls.Add(this.LabelQuestionNo);
             this.Name = "UCQuestion";
             this.Size = new System.Drawing.Size(902, 493);
+            this.Load += new System.EventHandler(this.UCQuestion_Load);
             this.PanelRadioButtons.ResumeLayout(false);
             this.PanelAnswers.ResumeLayout(false);
             this.ResumeLayout(false);

@@ -37,6 +37,7 @@ namespace EyeQuiz.UCQuiz
             this.ButtonSubmit = new Guna.UI2.WinForms.Guna2Button();
             this.PanelQuestionControl = new System.Windows.Forms.Panel();
             this.ButtonBack = new System.Windows.Forms.PictureBox();
+            this.ButtonAccept = new Guna.UI2.WinForms.Guna2Button();
             this.PanelQuestionControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ButtonBack)).BeginInit();
             this.SuspendLayout();
@@ -66,7 +67,7 @@ namespace EyeQuiz.UCQuiz
             this.ButtonPrev.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.ButtonPrev.ForeColor = System.Drawing.Color.White;
             this.ButtonPrev.HoverState.Parent = this.ButtonPrev;
-            this.ButtonPrev.Location = new System.Drawing.Point(7, 2);
+            this.ButtonPrev.Location = new System.Drawing.Point(5, 2);
             this.ButtonPrev.Name = "ButtonPrev";
             this.ButtonPrev.ShadowDecoration.Parent = this.ButtonPrev;
             this.ButtonPrev.Size = new System.Drawing.Size(112, 45);
@@ -92,7 +93,7 @@ namespace EyeQuiz.UCQuiz
             this.ButtonNext.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.ButtonNext.ForeColor = System.Drawing.Color.White;
             this.ButtonNext.HoverState.Parent = this.ButtonNext;
-            this.ButtonNext.Location = new System.Drawing.Point(135, 2);
+            this.ButtonNext.Location = new System.Drawing.Point(258, 2);
             this.ButtonNext.Name = "ButtonNext";
             this.ButtonNext.ShadowDecoration.Parent = this.ButtonNext;
             this.ButtonNext.Size = new System.Drawing.Size(112, 45);
@@ -118,11 +119,12 @@ namespace EyeQuiz.UCQuiz
             // 
             // PanelQuestionControl
             // 
+            this.PanelQuestionControl.Controls.Add(this.ButtonAccept);
             this.PanelQuestionControl.Controls.Add(this.ButtonNext);
             this.PanelQuestionControl.Controls.Add(this.ButtonPrev);
-            this.PanelQuestionControl.Location = new System.Drawing.Point(539, 590);
+            this.PanelQuestionControl.Location = new System.Drawing.Point(415, 590);
             this.PanelQuestionControl.Name = "PanelQuestionControl";
-            this.PanelQuestionControl.Size = new System.Drawing.Size(250, 52);
+            this.PanelQuestionControl.Size = new System.Drawing.Size(374, 52);
             this.PanelQuestionControl.TabIndex = 1;
             // 
             // ButtonBack
@@ -137,6 +139,22 @@ namespace EyeQuiz.UCQuiz
             this.ButtonBack.Click += new System.EventHandler(this.ButtonBack_Click);
             this.ButtonBack.MouseEnter += new System.EventHandler(this.ButtonBack_MouseEnter);
             this.ButtonBack.MouseLeave += new System.EventHandler(this.ButtonBack_MouseLeave);
+            // 
+            // ButtonAccept
+            // 
+            this.ButtonAccept.CheckedState.Parent = this.ButtonAccept;
+            this.ButtonAccept.CustomImages.Parent = this.ButtonAccept;
+            this.ButtonAccept.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(128)))), ((int)(((byte)(212)))));
+            this.ButtonAccept.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.ButtonAccept.ForeColor = System.Drawing.Color.White;
+            this.ButtonAccept.HoverState.Parent = this.ButtonAccept;
+            this.ButtonAccept.Location = new System.Drawing.Point(131, 2);
+            this.ButtonAccept.Name = "ButtonAccept";
+            this.ButtonAccept.ShadowDecoration.Parent = this.ButtonAccept;
+            this.ButtonAccept.Size = new System.Drawing.Size(112, 45);
+            this.ButtonAccept.TabIndex = 14;
+            this.ButtonAccept.Text = "Accept";
+            this.ButtonAccept.Click += new System.EventHandler(this.ButtonAccept_Click);
             // 
             // UCExam
             // 
@@ -168,5 +186,6 @@ namespace EyeQuiz.UCQuiz
         private Guna.UI2.WinForms.Guna2Button ButtonNext;
         private Guna.UI2.WinForms.Guna2Button ButtonSubmit;
         private System.Windows.Forms.Panel PanelQuestionControl;
+        private Guna.UI2.WinForms.Guna2Button ButtonAccept;
     }
 }
