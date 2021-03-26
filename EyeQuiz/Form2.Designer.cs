@@ -37,7 +37,7 @@ namespace EyeQuiz
             this.ButtonDashboard = new Guna.UI2.WinForms.Guna2Button();
             this.PictureBoxMinimize = new System.Windows.Forms.PictureBox();
             this.PictureBoxDrag = new System.Windows.Forms.PictureBox();
-            this.PanelFormTop = new System.Windows.Forms.Panel();
+            this.PanelFormTop = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.PanelFormLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxMinimize)).BeginInit();
@@ -51,9 +51,9 @@ namespace EyeQuiz
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PanelUserControls.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.PanelUserControls.Location = new System.Drawing.Point(200, 56);
+            this.PanelUserControls.Location = new System.Drawing.Point(199, 56);
             this.PanelUserControls.Name = "PanelUserControls";
-            this.PanelUserControls.Size = new System.Drawing.Size(934, 650);
+            this.PanelUserControls.Size = new System.Drawing.Size(941, 655);
             this.PanelUserControls.TabIndex = 9;
             // 
             // PanelFormLeft
@@ -64,8 +64,8 @@ namespace EyeQuiz
             this.PanelFormLeft.Controls.Add(this.ButtonDashboard);
             this.PanelFormLeft.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(128)))), ((int)(((byte)(212)))));
             this.PanelFormLeft.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(128)))), ((int)(((byte)(212)))));
-            this.PanelFormLeft.FillColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(128)))), ((int)(((byte)(212)))));
-            this.PanelFormLeft.FillColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(128)))), ((int)(((byte)(212)))));
+            this.PanelFormLeft.FillColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(34)))), ((int)(((byte)(40)))));
+            this.PanelFormLeft.FillColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(34)))), ((int)(((byte)(40)))));
             this.PanelFormLeft.Location = new System.Drawing.Point(-2, 0);
             this.PanelFormLeft.Name = "PanelFormLeft";
             this.PanelFormLeft.ShadowDecoration.Parent = this.PanelFormLeft;
@@ -97,10 +97,11 @@ namespace EyeQuiz
             // 
             // ButtonLogout
             // 
+            this.ButtonLogout.BackColor = System.Drawing.Color.Transparent;
             this.ButtonLogout.CheckedState.Parent = this.ButtonLogout;
             this.ButtonLogout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonLogout.CustomImages.Parent = this.ButtonLogout;
-            this.ButtonLogout.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(114)))), ((int)(((byte)(207)))));
+            this.ButtonLogout.FillColor = System.Drawing.Color.Transparent;
             this.ButtonLogout.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.ButtonLogout.ForeColor = System.Drawing.Color.White;
             this.ButtonLogout.HoverState.Parent = this.ButtonLogout;
@@ -114,10 +115,11 @@ namespace EyeQuiz
             // 
             // ButtonDashboard
             // 
+            this.ButtonDashboard.BackColor = System.Drawing.Color.Transparent;
             this.ButtonDashboard.CheckedState.Parent = this.ButtonDashboard;
             this.ButtonDashboard.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonDashboard.CustomImages.Parent = this.ButtonDashboard;
-            this.ButtonDashboard.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(114)))), ((int)(((byte)(207)))));
+            this.ButtonDashboard.FillColor = System.Drawing.Color.Transparent;
             this.ButtonDashboard.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.ButtonDashboard.ForeColor = System.Drawing.Color.White;
             this.ButtonDashboard.HoverState.Parent = this.ButtonDashboard;
@@ -135,7 +137,7 @@ namespace EyeQuiz
             this.PictureBoxMinimize.BackColor = System.Drawing.Color.Transparent;
             this.PictureBoxMinimize.Cursor = System.Windows.Forms.Cursors.Default;
             this.PictureBoxMinimize.Image = global::EyeQuiz.Properties.Resources.macos_minimize_24px;
-            this.PictureBoxMinimize.Location = new System.Drawing.Point(894, 9);
+            this.PictureBoxMinimize.Location = new System.Drawing.Point(893, 9);
             this.PictureBoxMinimize.Name = "PictureBoxMinimize";
             this.PictureBoxMinimize.Size = new System.Drawing.Size(40, 38);
             this.PictureBoxMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -151,7 +153,7 @@ namespace EyeQuiz
             this.PictureBoxDrag.BackColor = System.Drawing.Color.Transparent;
             this.PictureBoxDrag.Cursor = System.Windows.Forms.Cursors.SizeAll;
             this.PictureBoxDrag.Image = global::EyeQuiz.Properties.Resources.drag_26px;
-            this.PictureBoxDrag.Location = new System.Drawing.Point(853, 12);
+            this.PictureBoxDrag.Location = new System.Drawing.Point(852, 12);
             this.PictureBoxDrag.Name = "PictureBoxDrag";
             this.PictureBoxDrag.Size = new System.Drawing.Size(36, 33);
             this.PictureBoxDrag.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -163,12 +165,16 @@ namespace EyeQuiz
             // 
             // PanelFormTop
             // 
-            this.PanelFormTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(34)))), ((int)(((byte)(40)))));
             this.PanelFormTop.Controls.Add(this.PictureBoxDrag);
             this.PanelFormTop.Controls.Add(this.PictureBoxMinimize);
+            this.PanelFormTop.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(34)))), ((int)(((byte)(40)))));
+            this.PanelFormTop.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(34)))), ((int)(((byte)(40)))));
+            this.PanelFormTop.FillColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(34)))), ((int)(((byte)(40)))));
+            this.PanelFormTop.FillColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(34)))), ((int)(((byte)(40)))));
             this.PanelFormTop.Location = new System.Drawing.Point(198, 0);
             this.PanelFormTop.Name = "PanelFormTop";
-            this.PanelFormTop.Size = new System.Drawing.Size(943, 55);
+            this.PanelFormTop.ShadowDecoration.Parent = this.PanelFormTop;
+            this.PanelFormTop.Size = new System.Drawing.Size(943, 56);
             this.PanelFormTop.TabIndex = 10;
             // 
             // Form2
@@ -177,9 +183,9 @@ namespace EyeQuiz
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1139, 710);
+            this.Controls.Add(this.PanelFormTop);
             this.Controls.Add(this.PanelFormLeft);
             this.Controls.Add(this.PanelUserControls);
-            this.Controls.Add(this.PanelFormTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -205,6 +211,6 @@ namespace EyeQuiz
         private Guna.UI2.WinForms.Guna2Button ButtonDashboard;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel PanelFormTop;
+        private Guna.UI2.WinForms.Guna2CustomGradientPanel PanelFormTop;
     }
 }

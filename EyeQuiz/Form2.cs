@@ -68,15 +68,17 @@ namespace EyeQuiz
         private void ButtonDashboard_Click(object sender, EventArgs e)
         {
             this.PanelUserControls.Controls["UCDashboard"].BringToFront();
-            ClearUserControls("UCDashboard");
+
+            ClearUserControls();
         }
 
-        private void ClearUserControls(string except = "")
+        private void ClearUserControls()
         {
-            foreach (Control control in this.PanelUserControls.Controls)
+            while (this.PanelUserControls.Controls.Count != 1)
             {
-                if (control.Name != except)
-                    control.Dispose();
+                var control = this.PanelUserControls.Controls[1] as Control;
+
+                control.Dispose();
             }
         }
     }

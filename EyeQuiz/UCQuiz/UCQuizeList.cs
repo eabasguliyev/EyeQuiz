@@ -346,6 +346,8 @@ namespace EyeQuiz.UCQuiz
 
             SelectedQuize = null;
 
+            TextBoxQuestionCount.PlaceholderText = "Total question count 0";
+
             if (!LoadQuizzes())
                 return;
 
@@ -354,6 +356,19 @@ namespace EyeQuiz.UCQuiz
             else
                 RadioButtonOnlyMeClick();
 
+        }
+
+        private void ButtonStart_Click(object sender, EventArgs e)
+        {
+            if (SelectedQuize == null)
+                return;
+
+            var QuizIndex = (int)SelectedQuize.Tag;
+
+            var next = new UCExam() {LastUc = this, Questions = Quizzes[QuizIndex].Questions};
+
+            Form2.Instance.Controls["PanelUserControls"].Controls.Add(next);
+            next.BringToFront();
         }
     }
 }

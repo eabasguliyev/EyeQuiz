@@ -30,27 +30,27 @@ namespace EyeQuiz.UCQuiz
         private void InitializeComponent()
         {
             this.PanelQuizeList = new System.Windows.Forms.Panel();
+            this.ContextMenuPanel = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
+            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label2 = new System.Windows.Forms.Label();
             this.PanelQuiz = new System.Windows.Forms.Panel();
             this.LabelQuizName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.ButtonBack = new System.Windows.Forms.PictureBox();
             this.ButtonAdd = new Guna.UI2.WinForms.Guna2Button();
             this.TextBoxSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.PanelFilter = new System.Windows.Forms.Panel();
-            this.RadioButtonAll = new Guna.UI2.WinForms.Guna2CustomRadioButton();
-            this.RadioButtonOnlyMe = new Guna.UI2.WinForms.Guna2CustomRadioButton();
-            this.LabelAllQuiz = new System.Windows.Forms.Label();
             this.LabelMine = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.LabelAllQuiz = new System.Windows.Forms.Label();
+            this.RadioButtonOnlyMe = new Guna.UI2.WinForms.Guna2CustomRadioButton();
+            this.RadioButtonAll = new Guna.UI2.WinForms.Guna2CustomRadioButton();
+            this.ButtonStart = new Guna.UI2.WinForms.Guna2Button();
             this.TextBoxQuestionCount = new Guna.UI2.WinForms.Guna2TextBox();
-            this.ContextMenuPanel = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
-            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ButtonBack = new System.Windows.Forms.PictureBox();
             this.PanelQuizeList.SuspendLayout();
-            this.PanelQuiz.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ButtonBack)).BeginInit();
-            this.PanelFilter.SuspendLayout();
             this.ContextMenuPanel.SuspendLayout();
+            this.PanelQuiz.SuspendLayout();
+            this.PanelFilter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ButtonBack)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelQuizeList
@@ -65,6 +65,42 @@ namespace EyeQuiz.UCQuiz
             this.PanelQuizeList.Name = "PanelQuizeList";
             this.PanelQuizeList.Size = new System.Drawing.Size(880, 509);
             this.PanelQuizeList.TabIndex = 0;
+            // 
+            // ContextMenuPanel
+            // 
+            this.ContextMenuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(128)))), ((int)(((byte)(212)))));
+            this.ContextMenuPanel.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.ContextMenuPanel.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.refreshToolStripMenuItem});
+            this.ContextMenuPanel.Name = "ContextMenuPanel";
+            this.ContextMenuPanel.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.ContextMenuPanel.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro;
+            this.ContextMenuPanel.RenderStyle.ColorTable = null;
+            this.ContextMenuPanel.RenderStyle.RoundedEdges = true;
+            this.ContextMenuPanel.RenderStyle.SelectionArrowColor = System.Drawing.Color.White;
+            this.ContextMenuPanel.RenderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.ContextMenuPanel.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.ContextMenuPanel.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
+            this.ContextMenuPanel.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.ContextMenuPanel.Size = new System.Drawing.Size(128, 28);
+            // 
+            // refreshToolStripMenuItem
+            // 
+            this.refreshToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(128)))), ((int)(((byte)(212)))));
+            this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(127, 24);
+            this.refreshToolStripMenuItem.Text = "Refresh";
+            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(360, 257);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(158, 28);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "There is no quize";
             // 
             // PanelQuiz
             // 
@@ -99,19 +135,6 @@ namespace EyeQuiz.UCQuiz
             this.label1.Size = new System.Drawing.Size(152, 43);
             this.label1.TabIndex = 5;
             this.label1.Text = "Quiz List";
-            // 
-            // ButtonBack
-            // 
-            this.ButtonBack.Image = global::EyeQuiz.Properties.Resources.back_to_light_100px;
-            this.ButtonBack.Location = new System.Drawing.Point(19, 19);
-            this.ButtonBack.Name = "ButtonBack";
-            this.ButtonBack.Size = new System.Drawing.Size(52, 50);
-            this.ButtonBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ButtonBack.TabIndex = 6;
-            this.ButtonBack.TabStop = false;
-            this.ButtonBack.Click += new System.EventHandler(this.ButtonBack_Click);
-            this.ButtonBack.MouseEnter += new System.EventHandler(this.ButtonBack_MouseEnter);
-            this.ButtonBack.MouseLeave += new System.EventHandler(this.ButtonBack_MouseLeave);
             // 
             // ButtonAdd
             // 
@@ -158,29 +181,36 @@ namespace EyeQuiz.UCQuiz
             this.PanelFilter.Controls.Add(this.LabelAllQuiz);
             this.PanelFilter.Controls.Add(this.RadioButtonOnlyMe);
             this.PanelFilter.Controls.Add(this.RadioButtonAll);
-            this.PanelFilter.Location = new System.Drawing.Point(558, 11);
+            this.PanelFilter.Location = new System.Drawing.Point(498, 10);
             this.PanelFilter.Name = "PanelFilter";
-            this.PanelFilter.Size = new System.Drawing.Size(121, 58);
+            this.PanelFilter.Size = new System.Drawing.Size(184, 58);
             this.PanelFilter.TabIndex = 9;
             // 
-            // RadioButtonAll
+            // LabelMine
             // 
-            this.RadioButtonAll.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.RadioButtonAll.CheckedState.BorderThickness = 0;
-            this.RadioButtonAll.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.RadioButtonAll.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.RadioButtonAll.CheckedState.Parent = this.RadioButtonAll;
-            this.RadioButtonAll.Location = new System.Drawing.Point(12, 7);
-            this.RadioButtonAll.Name = "RadioButtonAll";
-            this.RadioButtonAll.ShadowDecoration.Parent = this.RadioButtonAll;
-            this.RadioButtonAll.Size = new System.Drawing.Size(20, 20);
-            this.RadioButtonAll.TabIndex = 0;
-            this.RadioButtonAll.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.RadioButtonAll.UncheckedState.BorderThickness = 2;
-            this.RadioButtonAll.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.RadioButtonAll.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            this.RadioButtonAll.UncheckedState.Parent = this.RadioButtonAll;
-            this.RadioButtonAll.CheckedChanged += new System.EventHandler(this.RadioButtonAll_CheckedChanged);
+            this.LabelMine.AutoSize = true;
+            this.LabelMine.BackColor = System.Drawing.Color.Transparent;
+            this.LabelMine.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LabelMine.ForeColor = System.Drawing.Color.Black;
+            this.LabelMine.Location = new System.Drawing.Point(108, 17);
+            this.LabelMine.Name = "LabelMine";
+            this.LabelMine.Size = new System.Drawing.Size(71, 20);
+            this.LabelMine.TabIndex = 8;
+            this.LabelMine.Text = "Only me";
+            this.LabelMine.Click += new System.EventHandler(this.LabelMine_Click);
+            // 
+            // LabelAllQuiz
+            // 
+            this.LabelAllQuiz.AutoSize = true;
+            this.LabelAllQuiz.BackColor = System.Drawing.Color.Transparent;
+            this.LabelAllQuiz.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LabelAllQuiz.ForeColor = System.Drawing.Color.Black;
+            this.LabelAllQuiz.Location = new System.Drawing.Point(33, 17);
+            this.LabelAllQuiz.Name = "LabelAllQuiz";
+            this.LabelAllQuiz.Size = new System.Drawing.Size(28, 20);
+            this.LabelAllQuiz.TabIndex = 7;
+            this.LabelAllQuiz.Text = "All";
+            this.LabelAllQuiz.Click += new System.EventHandler(this.LabelAllQuiz_Click);
             // 
             // RadioButtonOnlyMe
             // 
@@ -189,7 +219,7 @@ namespace EyeQuiz.UCQuiz
             this.RadioButtonOnlyMe.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.RadioButtonOnlyMe.CheckedState.InnerColor = System.Drawing.Color.White;
             this.RadioButtonOnlyMe.CheckedState.Parent = this.RadioButtonOnlyMe;
-            this.RadioButtonOnlyMe.Location = new System.Drawing.Point(12, 31);
+            this.RadioButtonOnlyMe.Location = new System.Drawing.Point(84, 19);
             this.RadioButtonOnlyMe.Name = "RadioButtonOnlyMe";
             this.RadioButtonOnlyMe.ShadowDecoration.Parent = this.RadioButtonOnlyMe;
             this.RadioButtonOnlyMe.Size = new System.Drawing.Size(20, 20);
@@ -201,55 +231,40 @@ namespace EyeQuiz.UCQuiz
             this.RadioButtonOnlyMe.UncheckedState.Parent = this.RadioButtonOnlyMe;
             this.RadioButtonOnlyMe.CheckedChanged += new System.EventHandler(this.RadioButtonOnlyMe_CheckedChanged);
             // 
-            // LabelAllQuiz
+            // RadioButtonAll
             // 
-            this.LabelAllQuiz.AutoSize = true;
-            this.LabelAllQuiz.BackColor = System.Drawing.Color.Transparent;
-            this.LabelAllQuiz.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LabelAllQuiz.ForeColor = System.Drawing.Color.Black;
-            this.LabelAllQuiz.Location = new System.Drawing.Point(38, 7);
-            this.LabelAllQuiz.Name = "LabelAllQuiz";
-            this.LabelAllQuiz.Size = new System.Drawing.Size(28, 20);
-            this.LabelAllQuiz.TabIndex = 7;
-            this.LabelAllQuiz.Text = "All";
-            this.LabelAllQuiz.Click += new System.EventHandler(this.LabelAllQuiz_Click);
+            this.RadioButtonAll.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.RadioButtonAll.CheckedState.BorderThickness = 0;
+            this.RadioButtonAll.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.RadioButtonAll.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.RadioButtonAll.CheckedState.Parent = this.RadioButtonAll;
+            this.RadioButtonAll.Location = new System.Drawing.Point(7, 19);
+            this.RadioButtonAll.Name = "RadioButtonAll";
+            this.RadioButtonAll.ShadowDecoration.Parent = this.RadioButtonAll;
+            this.RadioButtonAll.Size = new System.Drawing.Size(20, 20);
+            this.RadioButtonAll.TabIndex = 0;
+            this.RadioButtonAll.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.RadioButtonAll.UncheckedState.BorderThickness = 2;
+            this.RadioButtonAll.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.RadioButtonAll.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.RadioButtonAll.UncheckedState.Parent = this.RadioButtonAll;
+            this.RadioButtonAll.CheckedChanged += new System.EventHandler(this.RadioButtonAll_CheckedChanged);
             // 
-            // LabelMine
+            // ButtonStart
             // 
-            this.LabelMine.AutoSize = true;
-            this.LabelMine.BackColor = System.Drawing.Color.Transparent;
-            this.LabelMine.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LabelMine.ForeColor = System.Drawing.Color.Black;
-            this.LabelMine.Location = new System.Drawing.Point(38, 31);
-            this.LabelMine.Name = "LabelMine";
-            this.LabelMine.Size = new System.Drawing.Size(71, 20);
-            this.LabelMine.TabIndex = 8;
-            this.LabelMine.Text = "Only me";
-            this.LabelMine.Click += new System.EventHandler(this.LabelMine_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(360, 257);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(158, 28);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "There is no quize";
-            // 
-            // guna2Button1
-            // 
-            this.guna2Button1.CheckedState.Parent = this.guna2Button1;
-            this.guna2Button1.CustomImages.Parent = this.guna2Button1;
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.HoverState.Parent = this.guna2Button1;
-            this.guna2Button1.Location = new System.Drawing.Point(775, 595);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
-            this.guna2Button1.Size = new System.Drawing.Size(130, 45);
-            this.guna2Button1.TabIndex = 10;
-            this.guna2Button1.Text = "Next";
+            this.ButtonStart.CheckedState.Parent = this.ButtonStart;
+            this.ButtonStart.CustomImages.Parent = this.ButtonStart;
+            this.ButtonStart.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(128)))), ((int)(((byte)(212)))));
+            this.ButtonStart.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.ButtonStart.ForeColor = System.Drawing.Color.White;
+            this.ButtonStart.HoverState.Parent = this.ButtonStart;
+            this.ButtonStart.Location = new System.Drawing.Point(766, 595);
+            this.ButtonStart.Name = "ButtonStart";
+            this.ButtonStart.ShadowDecoration.Parent = this.ButtonStart;
+            this.ButtonStart.Size = new System.Drawing.Size(139, 45);
+            this.ButtonStart.TabIndex = 10;
+            this.ButtonStart.Text = "Start Exam";
+            this.ButtonStart.Click += new System.EventHandler(this.ButtonStart_Click);
             // 
             // TextBoxQuestionCount
             // 
@@ -265,7 +280,7 @@ namespace EyeQuiz.UCQuiz
             this.TextBoxQuestionCount.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.TextBoxQuestionCount.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.TextBoxQuestionCount.HoverState.Parent = this.TextBoxQuestionCount;
-            this.TextBoxQuestionCount.Location = new System.Drawing.Point(554, 595);
+            this.TextBoxQuestionCount.Location = new System.Drawing.Point(44, 595);
             this.TextBoxQuestionCount.Name = "TextBoxQuestionCount";
             this.TextBoxQuestionCount.PasswordChar = '\0';
             this.TextBoxQuestionCount.PlaceholderText = "Total question count 0";
@@ -274,31 +289,18 @@ namespace EyeQuiz.UCQuiz
             this.TextBoxQuestionCount.Size = new System.Drawing.Size(204, 45);
             this.TextBoxQuestionCount.TabIndex = 11;
             // 
-            // ContextMenuPanel
+            // ButtonBack
             // 
-            this.ContextMenuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(128)))), ((int)(((byte)(212)))));
-            this.ContextMenuPanel.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.ContextMenuPanel.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.refreshToolStripMenuItem});
-            this.ContextMenuPanel.Name = "ContextMenuPanel";
-            this.ContextMenuPanel.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.ContextMenuPanel.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro;
-            this.ContextMenuPanel.RenderStyle.ColorTable = null;
-            this.ContextMenuPanel.RenderStyle.RoundedEdges = true;
-            this.ContextMenuPanel.RenderStyle.SelectionArrowColor = System.Drawing.Color.White;
-            this.ContextMenuPanel.RenderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.ContextMenuPanel.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
-            this.ContextMenuPanel.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
-            this.ContextMenuPanel.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.ContextMenuPanel.Size = new System.Drawing.Size(211, 56);
-            // 
-            // refreshToolStripMenuItem
-            // 
-            this.refreshToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(128)))), ((int)(((byte)(212)))));
-            this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
-            this.refreshToolStripMenuItem.Text = "Refresh";
-            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
+            this.ButtonBack.Image = global::EyeQuiz.Properties.Resources.back_to_light_100px;
+            this.ButtonBack.Location = new System.Drawing.Point(19, 19);
+            this.ButtonBack.Name = "ButtonBack";
+            this.ButtonBack.Size = new System.Drawing.Size(52, 50);
+            this.ButtonBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ButtonBack.TabIndex = 6;
+            this.ButtonBack.TabStop = false;
+            this.ButtonBack.Click += new System.EventHandler(this.ButtonBack_Click);
+            this.ButtonBack.MouseEnter += new System.EventHandler(this.ButtonBack_MouseEnter);
+            this.ButtonBack.MouseLeave += new System.EventHandler(this.ButtonBack_MouseLeave);
             // 
             // UCQuizeList
             // 
@@ -306,7 +308,7 @@ namespace EyeQuiz.UCQuiz
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.Controls.Add(this.TextBoxQuestionCount);
-            this.Controls.Add(this.guna2Button1);
+            this.Controls.Add(this.ButtonStart);
             this.Controls.Add(this.PanelFilter);
             this.Controls.Add(this.PanelQuiz);
             this.Controls.Add(this.TextBoxSearch);
@@ -319,11 +321,11 @@ namespace EyeQuiz.UCQuiz
             this.Load += new System.EventHandler(this.UCQuizeList_Load);
             this.PanelQuizeList.ResumeLayout(false);
             this.PanelQuizeList.PerformLayout();
+            this.ContextMenuPanel.ResumeLayout(false);
             this.PanelQuiz.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ButtonBack)).EndInit();
             this.PanelFilter.ResumeLayout(false);
             this.PanelFilter.PerformLayout();
-            this.ContextMenuPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ButtonBack)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -344,7 +346,7 @@ namespace EyeQuiz.UCQuiz
         private Guna.UI2.WinForms.Guna2CustomRadioButton RadioButtonOnlyMe;
         private Guna.UI2.WinForms.Guna2CustomRadioButton RadioButtonAll;
         private System.Windows.Forms.Label label2;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button ButtonStart;
         private Guna.UI2.WinForms.Guna2TextBox TextBoxQuestionCount;
         private Guna.UI2.WinForms.Guna2ContextMenuStrip ContextMenuPanel;
         private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;

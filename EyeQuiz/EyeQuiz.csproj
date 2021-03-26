@@ -119,11 +119,23 @@
     <Compile Include="UCQuiz\UCDragDrop.Designer.cs">
       <DependentUpon>UCDragDrop.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCQuiz\UCExam.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCQuiz\UCExam.Designer.cs">
+      <DependentUpon>UCExam.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCQuiz\UCNewQuestion.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UCQuiz\UCNewQuestion.Designer.cs">
       <DependentUpon>UCNewQuestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCQuiz\UCQuestion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCQuiz\UCQuestion.Designer.cs">
+      <DependentUpon>UCQuestion.cs</DependentUpon>
     </Compile>
     <Compile Include="UCQuiz\UCQuizeList.cs">
       <SubType>UserControl</SubType>
@@ -180,8 +192,14 @@
     <EmbeddedResource Include="UCQuiz\UCDragDrop.resx">
       <DependentUpon>UCDragDrop.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UCQuiz\UCExam.resx">
+      <DependentUpon>UCExam.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UCQuiz\UCNewQuestion.resx">
       <DependentUpon>UCNewQuestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCQuiz\UCQuestion.resx">
+      <DependentUpon>UCQuestion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCQuiz\UCQuizeList.resx">
       <DependentUpon>UCQuizeList.cs</DependentUpon>

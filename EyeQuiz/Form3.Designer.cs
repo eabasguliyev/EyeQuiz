@@ -32,6 +32,7 @@ namespace EyeQuiz
             this.ButtonOk = new Guna.UI2.WinForms.Guna2Button();
             this.TextBoxFileName = new Guna.UI2.WinForms.Guna2TextBox();
             this.ButtonCancel = new Guna.UI2.WinForms.Guna2Button();
+            this.PanelFormTop = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
             // ButtonOk
@@ -43,7 +44,7 @@ namespace EyeQuiz
             this.ButtonOk.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.ButtonOk.ForeColor = System.Drawing.Color.White;
             this.ButtonOk.HoverState.Parent = this.ButtonOk;
-            this.ButtonOk.Location = new System.Drawing.Point(27, 85);
+            this.ButtonOk.Location = new System.Drawing.Point(27, 95);
             this.ButtonOk.Name = "ButtonOk";
             this.ButtonOk.ShadowDecoration.Parent = this.ButtonOk;
             this.ButtonOk.Size = new System.Drawing.Size(141, 45);
@@ -65,7 +66,7 @@ namespace EyeQuiz
             this.TextBoxFileName.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.TextBoxFileName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.TextBoxFileName.HoverState.Parent = this.TextBoxFileName;
-            this.TextBoxFileName.Location = new System.Drawing.Point(27, 33);
+            this.TextBoxFileName.Location = new System.Drawing.Point(27, 43);
             this.TextBoxFileName.MaxLength = 40;
             this.TextBoxFileName.Name = "TextBoxFileName";
             this.TextBoxFileName.PasswordChar = '\0';
@@ -84,7 +85,7 @@ namespace EyeQuiz
             this.ButtonCancel.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.ButtonCancel.ForeColor = System.Drawing.Color.White;
             this.ButtonCancel.HoverState.Parent = this.ButtonCancel;
-            this.ButtonCancel.Location = new System.Drawing.Point(178, 85);
+            this.ButtonCancel.Location = new System.Drawing.Point(178, 95);
             this.ButtonCancel.Name = "ButtonCancel";
             this.ButtonCancel.ShadowDecoration.Parent = this.ButtonCancel;
             this.ButtonCancel.Size = new System.Drawing.Size(141, 45);
@@ -92,11 +93,21 @@ namespace EyeQuiz
             this.ButtonCancel.Text = "Cancel";
             this.ButtonCancel.Click += new System.EventHandler(this.ButtonCancel_Click);
             // 
+            // PanelFormTop
+            // 
+            this.PanelFormTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(34)))), ((int)(((byte)(40)))));
+            this.PanelFormTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanelFormTop.Location = new System.Drawing.Point(0, 0);
+            this.PanelFormTop.Name = "PanelFormTop";
+            this.PanelFormTop.Size = new System.Drawing.Size(350, 20);
+            this.PanelFormTop.TabIndex = 9;
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(350, 158);
+            this.Controls.Add(this.PanelFormTop);
             this.Controls.Add(this.ButtonCancel);
             this.Controls.Add(this.ButtonOk);
             this.Controls.Add(this.TextBoxFileName);
@@ -113,5 +124,6 @@ namespace EyeQuiz
         private Guna.UI2.WinForms.Guna2Button ButtonOk;
         private Guna.UI2.WinForms.Guna2TextBox TextBoxFileName;
         private Guna.UI2.WinForms.Guna2Button ButtonCancel;
+        private System.Windows.Forms.FlowLayoutPanel PanelFormTop;
     }
 }
