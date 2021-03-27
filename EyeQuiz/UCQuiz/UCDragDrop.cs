@@ -42,8 +42,15 @@ namespace EyeQuiz.UCQuiz
                     MessageBoxIcon.Error);
                 return;
             }
-
+            
             var filePath = fileNames[0];
+
+            if (!filePath.EndsWith(".xml"))
+            {
+                MessageBox.Show("Only xml files are supported", "Drag and drop", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
 
             XmlHelper.Deserialize(filePath, QuestionsBlock);
 

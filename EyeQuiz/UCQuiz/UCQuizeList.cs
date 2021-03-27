@@ -26,11 +26,7 @@ namespace EyeQuiz.UCQuiz
 
         private void UCQuizeList_Load(object sender, EventArgs e)
         {
-            // PanelQuiz Size: 152, 172
-            // PanelQuiz Location: 16, 24
-            //MessageBox.Show($"{PanelQuiz.Size}");
-            //MessageBox.Show($"{PanelQuiz.Location}");
-
+            //MessageBox.Show($"{PanelQuizeList.Controls[0].Location}");
             if (!LoadQuizzes())
                 return;
 
@@ -265,9 +261,19 @@ namespace EyeQuiz.UCQuiz
             }
         }
 
-        private List<QuestionsBlock> FilterByName()
+        private List<QuestionsBlock> FilterByName(string name)
         {
+            name = name.ToLower();
+
             var filteredQuizzes = new List<QuestionsBlock>();
+            
+            foreach (var quiz in Quizzes)
+            {
+                var quizName = quiz.FileName.Substring(0, quiz.FileName.Length - 4).ToLower();
+
+                if(quizName.Contains(name))
+                    filteredQuizzes.Add(quiz);
+            }
 
             return filteredQuizzes;
         }
@@ -326,7 +332,17 @@ namespace EyeQuiz.UCQuiz
             this.PanelQuizeList.Controls.Clear();
 
             if (result.Count == 0)
+            {
+                var label = new Label();
+
+                label.Location = new Point(260, 195);
+                label.AutoSize = true;
+                label.Font = new Font("Nirmala UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+                label.Text = "You don't create any quiz yet.";
+
+                this.PanelQuizeList.Controls.Add(label);
                 return;
+            }
 
             QuizCount = 0;
             LoadQuizzesToListView(result);
@@ -381,6 +397,36 @@ namespace EyeQuiz.UCQuiz
 
             Form2.Instance.Controls["PanelUserControls"].Controls.Add(next);
             next.BringToFront();
+        }
+
+        private void TextBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            QuizCount = 0;
+
+            if (String.IsNullOrWhiteSpace(TextBoxSearch.Text))
+            {
+                LoadQuizzesToListView(Quizzes);
+                return;
+            }
+
+            var result = FilterByName(TextBoxSearch.Text);
+
+            this.PanelQuizeList.Controls.Clear();
+
+            if (result.Count == 0)
+            {
+                var label = new Label();
+
+                label.Location = new Point(240, 195);
+                label.AutoSize = true;
+                label.Font = new Font("Nirmala UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+                label.Text = "No tests found for this keyword.";
+                
+                this.PanelQuizeList.Controls.Add(label);
+                return;
+            }
+
+            LoadQuizzesToListView(result);
         }
     }
 }

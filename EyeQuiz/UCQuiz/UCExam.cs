@@ -37,6 +37,7 @@ namespace EyeQuiz.UCQuiz
         private bool _submitted;
 
         private Timer _examTime;
+        private bool _animationStatus = true;
 
         public UCExam()
         {
@@ -436,8 +437,8 @@ namespace EyeQuiz.UCQuiz
 
             //bmp.Save(filePath);
 
-            var next = new UCResult(){LastUc = this, QuizResult = _quizResult};
-
+            var next = new UCResult(){LastUc = this, QuizResult = _quizResult, AnimationStatus = _animationStatus};
+            _animationStatus = false;
             Form2.Instance.Controls["PanelUserControls"].Controls.Add(next);
             next.BringToFront();
         }

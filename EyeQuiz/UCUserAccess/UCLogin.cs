@@ -31,12 +31,16 @@ namespace EyeQuiz.UCUserAccess
             };
         }
 
-        private void UCLogin_Load(object sender, EventArgs e)
+        private void FocusToLoginButton()
         {
             var button = this.Controls["ButtonLogin"] as Guna2Button;
 
-            button?.Focus();
-
+            this.ActiveControl = button;
+        }
+        private void UCLogin_Load(object sender, EventArgs e)
+        {
+            FocusToLoginButton();
+            
             Form1.Instance.Text = "Login";
             Form1.Instance.Controls["PanelFormLeft"].Controls["label1"].Text = "Login";
             Form1.Instance.Controls["PanelFormLeft"].Controls["LabelNote"].Text = @"Hello, Let's get started!";
@@ -113,6 +117,14 @@ namespace EyeQuiz.UCUserAccess
             form2.ShowDialog();
 
             Form1.Instance.Show();
+
+            ClearUserInputs();
+        }
+
+        private void ClearUserInputs()
+        {
+            this.TextBoxEmail.Text = String.Empty;
+            this.TextBoxPassword.Text = String.Empty;
         }
 
         private bool CheckUserInputs()
@@ -157,6 +169,11 @@ namespace EyeQuiz.UCUserAccess
             var button = this.Controls["ButtonLogin"] as Guna2Button;
 
             button?.PerformClick();
+        }
+
+        private void UCLogin_Click(object sender, EventArgs e)
+        {
+            FocusToLoginButton();
         }
     }
 }

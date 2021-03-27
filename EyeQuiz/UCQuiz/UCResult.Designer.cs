@@ -43,8 +43,8 @@ namespace EyeQuiz.UCQuiz
             this.PanelAnswersCount = new System.Windows.Forms.Panel();
             this.LabelNotAnsweredCounts = new System.Windows.Forms.Label();
             this.LabelCorrectCounts = new System.Windows.Forms.Label();
-            this.LabelIncorrectCounts = new System.Windows.Forms.Label();
             this.LabelNotSureCounts = new System.Windows.Forms.Label();
+            this.LabelIncorrectCounts = new System.Windows.Forms.Label();
             this.ButtonSave = new Guna.UI2.WinForms.Guna2GradientButton();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -231,17 +231,6 @@ namespace EyeQuiz.UCQuiz
             this.LabelCorrectCounts.TabIndex = 0;
             this.LabelCorrectCounts.Text = "0";
             // 
-            // LabelIncorrectCounts
-            // 
-            this.LabelIncorrectCounts.AutoSize = true;
-            this.LabelIncorrectCounts.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LabelIncorrectCounts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(64)))), ((int)(((byte)(58)))));
-            this.LabelIncorrectCounts.Location = new System.Drawing.Point(10, 73);
-            this.LabelIncorrectCounts.Name = "LabelIncorrectCounts";
-            this.LabelIncorrectCounts.Size = new System.Drawing.Size(18, 20);
-            this.LabelIncorrectCounts.TabIndex = 1;
-            this.LabelIncorrectCounts.Text = "0";
-            // 
             // LabelNotSureCounts
             // 
             this.LabelNotSureCounts.AutoSize = true;
@@ -252,6 +241,17 @@ namespace EyeQuiz.UCQuiz
             this.LabelNotSureCounts.Size = new System.Drawing.Size(18, 20);
             this.LabelNotSureCounts.TabIndex = 2;
             this.LabelNotSureCounts.Text = "0";
+            // 
+            // LabelIncorrectCounts
+            // 
+            this.LabelIncorrectCounts.AutoSize = true;
+            this.LabelIncorrectCounts.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LabelIncorrectCounts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(64)))), ((int)(((byte)(58)))));
+            this.LabelIncorrectCounts.Location = new System.Drawing.Point(10, 73);
+            this.LabelIncorrectCounts.Name = "LabelIncorrectCounts";
+            this.LabelIncorrectCounts.Size = new System.Drawing.Size(18, 20);
+            this.LabelIncorrectCounts.TabIndex = 1;
+            this.LabelIncorrectCounts.Text = "0";
             // 
             // ButtonSave
             // 
@@ -265,7 +265,7 @@ namespace EyeQuiz.UCQuiz
             this.ButtonSave.Location = new System.Drawing.Point(500, 492);
             this.ButtonSave.Name = "ButtonSave";
             this.ButtonSave.ShadowDecoration.Parent = this.ButtonSave;
-            this.ButtonSave.Size = new System.Drawing.Size(147, 56);
+            this.ButtonSave.Size = new System.Drawing.Size(142, 56);
             this.ButtonSave.TabIndex = 11;
             this.ButtonSave.Text = "SAVE";
             // 

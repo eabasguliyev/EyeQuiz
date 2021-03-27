@@ -33,11 +33,13 @@ namespace EyeQuiz.UCUserAccess
 
         private void UCSignUp_Load(object sender, EventArgs e)
         {
+            FocusToSignUpButton();
+            
             Form1.Instance.Text = "Sign Up";
             Form1.Instance.Controls["PanelFormLeft"].Controls["label1"].Text = "Sign Up";
             Form1.Instance.Controls["PanelFormLeft"].Controls["LabelNote"].Text = @"Get started in a few clicks 
 and create or take quiz.";
-            Form1.Instance.Controls["PanelFormLeft"].Controls["PanelInner"].Controls["label2"].Text = "Have an account?";
+            Form1.Instance.Controls["PanelFormLeft"].Controls["PanelInner"].Controls["label2"].Text = "Have an account already?";
             Form1.Instance.Controls["PanelFormLeft"].Controls["PanelInner"].Controls["LabelSwitch"].Text = "Login";
             Form1.Instance.Controls["PanelFormLeft"].Controls["PanelInner"].Controls["LabelSwitch"].Click += LabelSwitch_Click;
         }
@@ -193,6 +195,18 @@ and create or take quiz.";
             var button = this.Controls["ButtonSignUp"] as Guna2Button;
 
             button?.PerformClick();
+        }
+
+        private void UCSignUp_Click(object sender, EventArgs e)
+        {
+            FocusToSignUpButton();
+        }
+
+        private void FocusToSignUpButton()
+        {
+            var button = this.Controls["ButtonSignUp"] as Guna2Button;
+
+            this.ActiveControl = button;
         }
     }
 }

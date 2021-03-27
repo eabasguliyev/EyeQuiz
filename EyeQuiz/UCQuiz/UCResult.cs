@@ -17,6 +17,8 @@ namespace EyeQuiz.UCQuiz
         private Timer _timer;
         private int _timerCounter = 10;
         public QuizResult QuizResult { get; set; }
+
+        public bool AnimationStatus { get; set; }
         public UCResult()
         {
             InitializeComponent();
@@ -25,7 +27,6 @@ namespace EyeQuiz.UCQuiz
 
             _timer.Interval = 500;
             _timer.Tick += _timer_Tick;
-            _timer.Start();
         }
 
         private void _timer_Tick(object sender, EventArgs e)
@@ -68,7 +69,12 @@ namespace EyeQuiz.UCQuiz
 
         private void UCResult_Load(object sender, EventArgs e)
         {
-            
+            if(AnimationStatus)
+                _timer.Start();
+            else
+            {
+                SetResults();
+            }
         }
 
         private void Animation()
