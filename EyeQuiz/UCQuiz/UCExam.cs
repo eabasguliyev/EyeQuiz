@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using EyeQuiz.Entities;
 using EyeQuiz.Helpers;
@@ -13,7 +14,7 @@ namespace EyeQuiz.UCQuiz
         public UserControl LastUc { get; set; }
 
         public List<QuestionBlock> Questions { get; set; }
-        public List<QuestionBlock> AnsweredQuestions { get; set; }
+        public Dictionary<Guid, Guid> AnsweredQuestions { get; set; } 
 
         public int QuestionIndex { get; set; }
 
@@ -21,6 +22,13 @@ namespace EyeQuiz.UCQuiz
 
         private List<ToolTip> _toolTips;
         private List<UCQuestion> UcQuestions { get; set; }
+
+        private List<int> VerticalLoc { get; set; }
+        private List<int> HorizontalLoc { get; set; }
+
+        private QuizResult QuizResult { get; set; }
+
+        public List<ResultQuestionBlock> ResultQuestionBlocks { get; set; }
 
         public UCExam()
         {
@@ -33,8 +41,27 @@ namespace EyeQuiz.UCQuiz
                 new ToolTip(),
                 new ToolTip(),
             };
-            AnsweredQuestions = new List<QuestionBlock>();
+            AnsweredQuestions = new Dictionary<Guid, Guid>();
             UcQuestions = new List<UCQuestion>();
+            /*
+             * Y 156
+Y 236
+Y 321
+Y 413
+
+X 7 - X - 47
+             */
+            VerticalLoc = new List<int>()
+            {
+                125, 189, 257, 329
+            };
+
+            HorizontalLoc = new List<int>()
+            {
+                6, 38,
+            };
+
+            ResultQuestionBlocks = new List<ResultQuestionBlock>();
         }
 
         private void UCExam_Load(object sender, EventArgs e)
@@ -57,14 +84,16 @@ namespace EyeQuiz.UCQuiz
         }
         private void LoadQuestion(UCQuestion ucQuestion, QuestionBlock question)
         {
+            ucQuestion.Tag = question.Guid;
             ucQuestion.Controls["LabelQuestionNo"].Text = (QuestionIndex + 1).ToString();
             ucQuestion.Controls["LabelQuestion"].Text = question.Text.Trim();
 
-            for (int i = 0; i < this.UcQuestion.Controls["PanelAnswers"].Controls.Count; i++)
+            for (int i = 0; i < ucQuestion.Controls["PanelAnswers"].Controls.Count; i++)
             {
-                if (this.UcQuestion.Controls["PanelAnswers"].Controls[i] is Label labelAnswer)
+                if (ucQuestion.Controls["PanelAnswers"].Controls[i] is Label labelAnswer)
                 {
                     labelAnswer.Text = question.Answers[i].Text.Trim();
+                    ucQuestion.Controls["PanelRadioButtons"].Controls[i].Tag = question.Answers[i].Guid;
                 }
             }
         }
@@ -81,7 +110,28 @@ namespace EyeQuiz.UCQuiz
 
         private void ButtonSubmit_Click(object sender, EventArgs e)
         {
-            PanelQuestionControl.Dispose();
+            if (Questions.Count != UcQuestions.Count)
+            {
+                var nextIndex = UcQuestions.Count;
+
+                for (; nextIndex < Questions.Count; nextIndex++)
+                {
+                    QuestionIndex = nextIndex;
+                    var ucQuestion = new UCQuestion();
+                    this.PanelUcQuestion.Controls.Add(ucQuestion);
+                    LoadQuestion(ucQuestion, Questions[nextIndex]);
+                    UcQuestions.Add(ucQuestion);
+                }
+            }
+            PanelQuestionControl.Controls["ButtonAccept"].Enabled = false;
+            ButtonSubmit.Visible = false;
+            ButtonGetResult.Visible = true;
+            CheckQuestions();
+            SetResults();
+
+            QuestionIndex = 0;
+            UcQuestion = UcQuestions[QuestionIndex];
+            UcQuestion.BringToFront();
         }
 
         private void ButtonBack_Click(object sender, EventArgs e)
@@ -103,6 +153,8 @@ namespace EyeQuiz.UCQuiz
             UcQuestion.BringToFront();
 
             ChangeLabelQuestionNo();
+
+            this.ButtonAccept.Enabled = !UcQuestion.AcceptButtonClicked;
         }
 
         private void ButtonNext_Click(object sender, EventArgs e)
@@ -128,6 +180,8 @@ namespace EyeQuiz.UCQuiz
 
             UcQuestion.BringToFront();
             ChangeLabelQuestionNo();
+
+            this.ButtonAccept.Enabled = !UcQuestion.AcceptButtonClicked;
         }
 
         private void ButtonAccept_Click(object sender, EventArgs e)
@@ -135,20 +189,17 @@ namespace EyeQuiz.UCQuiz
             if (!CheckUserAnswer())
                 return;
 
-            var answerIndex = GetAnswerIndex();
+            var answerIndex = GetAnswerIndex(UcQuestion);
 
             if (answerIndex < 0)
                 return;
 
             var currentQuestion = Questions[QuestionIndex];
 
-            var answeredQuestion = new QuestionBlock()
-            {
-                Guid = currentQuestion.Guid,
-                Text = currentQuestion.Text,
-            };
+            AnsweredQuestions[currentQuestion.Guid] = currentQuestion.Answers[answerIndex].Guid;
 
-            answeredQuestion.Answers.Add(currentQuestion.Answers[answerIndex]);
+            this.UcQuestion.AcceptButtonClicked = true;
+            ButtonAccept.Enabled = false;
         }
 
         private bool CheckUserAnswer()
@@ -186,9 +237,9 @@ namespace EyeQuiz.UCQuiz
             return radioButtonChecked;
         }
 
-        private int GetAnswerIndex()
+        private int GetAnswerIndex(UCQuestion panelUcQuestion)
         {
-            var panelRadioButtons = this.PanelUcQuestion.Controls["UcQuestion"].Controls["PanelRadioButtons"] as Panel;
+            var panelRadioButtons = panelUcQuestion.Controls["PanelRadioButtons"] as Panel;
 
             for (int i = 0; i < panelRadioButtons.Controls.Count; i++)
             {
@@ -198,6 +249,108 @@ namespace EyeQuiz.UCQuiz
                     {
                         return i;
                     }
+                }
+            }
+
+            return -1;
+        }
+
+        private void CheckQuestions()
+        {
+            var result = new QuizResult();
+
+            for (var i = 0; i < UcQuestions.Count; i++)
+            {
+                var resultQuestionBlock = new ResultQuestionBlock(){QuestionId = Questions[i].Guid};
+
+                var ucQuestion = UcQuestions[i];
+
+                var answerIndex = GetAnswerIndex(ucQuestion);
+
+                var correctAnswerId = Questions[i].Answers.SingleOrDefault(a => a.IsCorrect == "Yes").Guid;
+
+                resultQuestionBlock.CorrectAnswerId = correctAnswerId;
+
+                if (answerIndex < 0)
+                {
+                    var answerStatus = AnswerStatus.NotAnswered;
+                    resultQuestionBlock.Answer = new CheckedAnswer()
+                        {AnswerStatus = answerStatus, AnswerId = Guid.Empty};
+                }
+                else
+                {
+                    var radioButton =
+                        ucQuestion.Controls["PanelRadioButtons"].Controls[answerIndex] as Guna2CustomRadioButton;
+
+                    var answerId = (Guid)radioButton.Tag;
+
+                    AnswerStatus answerStatus;
+                    if (answerId == correctAnswerId)
+                        answerStatus = AnswerStatus.CorrectAnswer;
+                    else
+                    {
+                        answerStatus = AnswerStatus.IncorrectAnswer;
+                    }
+
+                    resultQuestionBlock.Answer = new CheckedAnswer() {AnswerId = answerId, AnswerStatus = answerStatus};
+                }
+
+                ResultQuestionBlocks.Add(resultQuestionBlock);
+            }
+        }
+
+        private void SetResults()
+        {
+            for (int i = 0; i < ResultQuestionBlocks.Count; i++)
+            {
+                var resultQuestionBlock = ResultQuestionBlocks[i];
+
+                var ucQuestion = UcQuestions[i];
+
+
+                var pcBxCorrectAnswer = ucQuestion.Controls["PictureBoxCorrectAnswer"] as PictureBox;
+
+                pcBxCorrectAnswer.Image = Properties.Resources.checked_40px;
+
+                pcBxCorrectAnswer.Visible = true;
+
+                var correctAnswerRdIndex = GetAnswerRadioButtonIndex(ucQuestion, resultQuestionBlock.CorrectAnswerId);
+
+                pcBxCorrectAnswer.Location = new Point(HorizontalLoc[0], VerticalLoc[correctAnswerRdIndex]);
+
+
+                var pcBxUserAnswer = ucQuestion.Controls["PictureBoxUserAnswer"] as PictureBox;
+
+                if (resultQuestionBlock.Answer.AnswerStatus != AnswerStatus.NotAnswered)
+                {
+                    var userAnswerRdIndex = GetAnswerRadioButtonIndex(ucQuestion, resultQuestionBlock.Answer.AnswerId);
+
+                    pcBxUserAnswer.Location = new Point(HorizontalLoc[1], VerticalLoc[userAnswerRdIndex]);
+
+                    pcBxUserAnswer.Visible = true;
+
+                    if (resultQuestionBlock.Answer.AnswerStatus == AnswerStatus.CorrectAnswer)
+                        pcBxUserAnswer.Image = Properties.Resources.checked_green_80px;
+                    else
+                    {
+                        pcBxUserAnswer.Image = Properties.Resources.multiply_24px;
+                    }
+                }
+            }
+        }
+
+        private int GetAnswerRadioButtonIndex(UCQuestion ucQuestion, Guid questionAnswerId)
+        {
+            var panelRadioButtons = ucQuestion.Controls["PanelRadioButtons"] as Panel;
+
+            for (int i = 0; i < panelRadioButtons.Controls.Count; i++)
+            {
+                if (panelRadioButtons.Controls[i] is Guna2CustomRadioButton rd)
+                {
+                    var answerId = (Guid)rd.Tag;
+
+                    if (questionAnswerId == answerId)
+                        return i;
                 }
             }
 

@@ -83,6 +83,26 @@ namespace EyeQuiz.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap checked_40px {
+            get {
+                object obj = ResourceManager.GetObject("checked_40px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap checked_green_80px {
+            get {
+                object obj = ResourceManager.GetObject("checked_green_80px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap checklist_96px {
             get {
                 object obj = ResourceManager.GetObject("checklist_96px", resourceCulture);
@@ -186,6 +206,16 @@ namespace EyeQuiz.Properties {
         internal static System.Drawing.Bitmap minimize_window_green_50px {
             get {
                 object obj = ResourceManager.GetObject("minimize_window_green_50px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap multiply_24px {
+            get {
+                object obj = ResourceManager.GetObject("multiply_24px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

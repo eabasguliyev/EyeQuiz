@@ -64,6 +64,8 @@
     <Compile Include="Entities\QuestionBlock.cs" />
     <Compile Include="AppExceptions\QuestionException.cs" />
     <Compile Include="Entities\QuestionsBlock.cs" />
+    <Compile Include="Entities\QuizResult.cs" />
+    <Compile Include="Entities\ResultQuestionBlock.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Extensions\DatabaseExtension.cs" />
     <Compile Include="Form1.cs">
@@ -278,6 +280,14 @@
   <ItemGroup>
     <None Include="Resources\xml_240px.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\checked_40px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checked_green_80px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\multiply_24px.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

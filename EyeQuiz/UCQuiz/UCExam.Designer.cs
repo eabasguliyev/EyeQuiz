@@ -36,8 +36,9 @@ namespace EyeQuiz.UCQuiz
             this.ButtonNext = new Guna.UI2.WinForms.Guna2Button();
             this.ButtonSubmit = new Guna.UI2.WinForms.Guna2Button();
             this.PanelQuestionControl = new System.Windows.Forms.Panel();
-            this.ButtonBack = new System.Windows.Forms.PictureBox();
             this.ButtonAccept = new Guna.UI2.WinForms.Guna2Button();
+            this.ButtonBack = new System.Windows.Forms.PictureBox();
+            this.ButtonGetResult = new Guna.UI2.WinForms.Guna2Button();
             this.PanelQuestionControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ButtonBack)).BeginInit();
             this.SuspendLayout();
@@ -109,10 +110,10 @@ namespace EyeQuiz.UCQuiz
             this.ButtonSubmit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.ButtonSubmit.ForeColor = System.Drawing.Color.White;
             this.ButtonSubmit.HoverState.Parent = this.ButtonSubmit;
-            this.ButtonSubmit.Location = new System.Drawing.Point(799, 592);
+            this.ButtonSubmit.Location = new System.Drawing.Point(778, 592);
             this.ButtonSubmit.Name = "ButtonSubmit";
             this.ButtonSubmit.ShadowDecoration.Parent = this.ButtonSubmit;
-            this.ButtonSubmit.Size = new System.Drawing.Size(112, 45);
+            this.ButtonSubmit.Size = new System.Drawing.Size(133, 45);
             this.ButtonSubmit.TabIndex = 14;
             this.ButtonSubmit.Text = "Submit";
             this.ButtonSubmit.Click += new System.EventHandler(this.ButtonSubmit_Click);
@@ -122,23 +123,10 @@ namespace EyeQuiz.UCQuiz
             this.PanelQuestionControl.Controls.Add(this.ButtonAccept);
             this.PanelQuestionControl.Controls.Add(this.ButtonNext);
             this.PanelQuestionControl.Controls.Add(this.ButtonPrev);
-            this.PanelQuestionControl.Location = new System.Drawing.Point(415, 590);
+            this.PanelQuestionControl.Location = new System.Drawing.Point(392, 590);
             this.PanelQuestionControl.Name = "PanelQuestionControl";
             this.PanelQuestionControl.Size = new System.Drawing.Size(374, 52);
             this.PanelQuestionControl.TabIndex = 1;
-            // 
-            // ButtonBack
-            // 
-            this.ButtonBack.Image = global::EyeQuiz.Properties.Resources.back_to_light_100px;
-            this.ButtonBack.Location = new System.Drawing.Point(19, 19);
-            this.ButtonBack.Name = "ButtonBack";
-            this.ButtonBack.Size = new System.Drawing.Size(52, 50);
-            this.ButtonBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ButtonBack.TabIndex = 7;
-            this.ButtonBack.TabStop = false;
-            this.ButtonBack.Click += new System.EventHandler(this.ButtonBack_Click);
-            this.ButtonBack.MouseEnter += new System.EventHandler(this.ButtonBack_MouseEnter);
-            this.ButtonBack.MouseLeave += new System.EventHandler(this.ButtonBack_MouseLeave);
             // 
             // ButtonAccept
             // 
@@ -156,6 +144,35 @@ namespace EyeQuiz.UCQuiz
             this.ButtonAccept.Text = "Accept";
             this.ButtonAccept.Click += new System.EventHandler(this.ButtonAccept_Click);
             // 
+            // ButtonBack
+            // 
+            this.ButtonBack.Image = global::EyeQuiz.Properties.Resources.back_to_light_100px;
+            this.ButtonBack.Location = new System.Drawing.Point(19, 19);
+            this.ButtonBack.Name = "ButtonBack";
+            this.ButtonBack.Size = new System.Drawing.Size(52, 50);
+            this.ButtonBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ButtonBack.TabIndex = 7;
+            this.ButtonBack.TabStop = false;
+            this.ButtonBack.Click += new System.EventHandler(this.ButtonBack_Click);
+            this.ButtonBack.MouseEnter += new System.EventHandler(this.ButtonBack_MouseEnter);
+            this.ButtonBack.MouseLeave += new System.EventHandler(this.ButtonBack_MouseLeave);
+            // 
+            // ButtonGetResult
+            // 
+            this.ButtonGetResult.CheckedState.Parent = this.ButtonGetResult;
+            this.ButtonGetResult.CustomImages.Parent = this.ButtonGetResult;
+            this.ButtonGetResult.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(128)))), ((int)(((byte)(212)))));
+            this.ButtonGetResult.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.ButtonGetResult.ForeColor = System.Drawing.Color.White;
+            this.ButtonGetResult.HoverState.Parent = this.ButtonGetResult;
+            this.ButtonGetResult.Location = new System.Drawing.Point(778, 592);
+            this.ButtonGetResult.Name = "ButtonGetResult";
+            this.ButtonGetResult.ShadowDecoration.Parent = this.ButtonGetResult;
+            this.ButtonGetResult.Size = new System.Drawing.Size(133, 45);
+            this.ButtonGetResult.TabIndex = 15;
+            this.ButtonGetResult.Text = "Get Result";
+            this.ButtonGetResult.Visible = false;
+            // 
             // UCExam
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -166,6 +183,7 @@ namespace EyeQuiz.UCQuiz
             this.Controls.Add(this.LabelTimeLeft);
             this.Controls.Add(this.ButtonBack);
             this.Controls.Add(this.PanelUcQuestion);
+            this.Controls.Add(this.ButtonGetResult);
             this.Name = "UCExam";
             this.Size = new System.Drawing.Size(941, 655);
             this.Load += new System.EventHandler(this.UCExam_Load);
@@ -187,5 +205,6 @@ namespace EyeQuiz.UCQuiz
         private Guna.UI2.WinForms.Guna2Button ButtonSubmit;
         private System.Windows.Forms.Panel PanelQuestionControl;
         private Guna.UI2.WinForms.Guna2Button ButtonAccept;
+        private Guna.UI2.WinForms.Guna2Button ButtonGetResult;
     }
 }
