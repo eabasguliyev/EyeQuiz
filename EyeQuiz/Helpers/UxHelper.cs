@@ -23,5 +23,12 @@ namespace EyeQuiz.Helpers
                 rd.UncheckedState.BorderColor = Color.Red;
             }
         }
+
+        public static DialogResult AreYouSure(string text)
+        {
+            var status = MessageBox.Show(text, "Info", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            return status;
+        }
     }
 }

@@ -33,6 +33,10 @@ namespace EyeQuiz.UCUserAccess
 
         private void UCLogin_Load(object sender, EventArgs e)
         {
+            var button = this.Controls["ButtonLogin"] as Guna2Button;
+
+            button?.Focus();
+
             Form1.Instance.Text = "Login";
             Form1.Instance.Controls["PanelFormLeft"].Controls["label1"].Text = "Login";
             Form1.Instance.Controls["PanelFormLeft"].Controls["LabelNote"].Text = @"Hello, Let's get started!";
@@ -144,6 +148,15 @@ namespace EyeQuiz.UCUserAccess
             //Form1.Instance.Controls["PanelUcArea"].Controls.Add(ucFbLogin);
             //ucFbLogin.Login();
             //ucFbLogin.BringToFront();
+        }
+
+        private void UCLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode != Keys.Enter) return;
+
+            var button = this.Controls["ButtonLogin"] as Guna2Button;
+
+            button?.PerformClick();
         }
     }
 }

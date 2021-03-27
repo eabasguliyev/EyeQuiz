@@ -143,6 +143,16 @@ namespace EyeQuiz.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap decision_26px {
+            get {
+                object obj = ResourceManager.GetObject("decision_26px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap drag_26px {
             get {
                 object obj = ResourceManager.GetObject("drag_26px", resourceCulture);
@@ -246,6 +256,16 @@ namespace EyeQuiz.Properties {
         internal static System.Drawing.Bitmap remove_red_100px {
             get {
                 object obj = ResourceManager.GetObject("remove_red_100px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wrong_30px {
+            get {
+                object obj = ResourceManager.GetObject("wrong_30px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

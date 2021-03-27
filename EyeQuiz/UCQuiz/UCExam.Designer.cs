@@ -172,17 +172,18 @@ namespace EyeQuiz.UCQuiz
             this.ButtonGetResult.TabIndex = 15;
             this.ButtonGetResult.Text = "Get Result";
             this.ButtonGetResult.Visible = false;
+            this.ButtonGetResult.Click += new System.EventHandler(this.ButtonGetResult_Click);
             // 
             // UCExam
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.Controls.Add(this.PanelQuestionControl);
-            this.Controls.Add(this.ButtonSubmit);
             this.Controls.Add(this.LabelCurrentQuestionNo);
             this.Controls.Add(this.LabelTimeLeft);
             this.Controls.Add(this.ButtonBack);
             this.Controls.Add(this.PanelUcQuestion);
+            this.Controls.Add(this.ButtonSubmit);
             this.Controls.Add(this.ButtonGetResult);
             this.Name = "UCExam";
             this.Size = new System.Drawing.Size(941, 655);

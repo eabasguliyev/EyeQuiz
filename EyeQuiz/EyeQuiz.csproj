@@ -61,6 +61,9 @@
     <Compile Include="AppExceptions\UserNotFoundException.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="Entities\Answer.cs" />
+    <Compile Include="Entities\Time.cs" />
+    <Compile Include="Enums\AnswerStatus.cs" />
+    <Compile Include="Entities\CheckedAnswer.cs" />
     <Compile Include="Entities\QuestionBlock.cs" />
     <Compile Include="AppExceptions\QuestionException.cs" />
     <Compile Include="Entities\QuestionsBlock.cs" />
@@ -145,6 +148,12 @@
     <Compile Include="UCQuiz\UCQuizeList.Designer.cs">
       <DependentUpon>UCQuizeList.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCQuiz\UCResult.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCQuiz\UCResult.Designer.cs">
+      <DependentUpon>UCResult.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCUserAccess\UCFacebookLogin.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -205,6 +214,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCQuiz\UCQuizeList.resx">
       <DependentUpon>UCQuizeList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCQuiz\UCResult.resx">
+      <DependentUpon>UCResult.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCUserAccess\UCFacebookLogin.resx">
       <DependentUpon>UCFacebookLogin.cs</DependentUpon>
@@ -288,6 +300,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\multiply_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wrong_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\decision_26px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

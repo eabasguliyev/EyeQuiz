@@ -47,6 +47,7 @@ namespace EyeQuiz.UCQuiz
 
             XmlHelper.Deserialize(filePath, QuestionsBlock);
 
+            Form2.Instance.UserActivity = true;
             var next = new UCCreateNewQuestion() { LastUc = this, 
                 QuestionsBlock =  QuestionsBlock, Loaded = true};
             

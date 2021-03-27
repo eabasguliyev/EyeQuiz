@@ -8,6 +8,8 @@ using EyeQuiz.Entities;
 using EyeQuiz.Extensions;
 using EyeQuiz.HashAlgorithms;
 using EyeQuiz.Helpers;
+using EyeQuiz.Helpers.FileHelpers;
+using Guna.UI2.WinForms;
 
 namespace EyeQuiz.UCUserAccess
 {
@@ -89,6 +91,17 @@ and create or take quiz.";
             if (!CheckUserInputs())
                 return;
 
+            if (!Program.Database.CheckEmail(TextBoxEmail.Text))
+            {
+                UxHelper.SetNewToolTip(TextBoxEmail, _toolTips[1], "Email", "This email address already registered.");
+                return;
+            }
+            else
+            {
+                TextBoxEmail.BorderColor = Color.FromArgb(213, 218, 223);
+                _toolTips[1].RemoveAll();
+            }
+
             var sha256 = new Sha256();
 
             var user = new User()
@@ -99,6 +112,8 @@ and create or take quiz.";
             };
 
             Program.Database.Register(user);
+
+            JsonHelper.Serialize(Program.Database);
 
             var form2 = new Form2();
             
@@ -168,19 +183,16 @@ and create or take quiz.";
                 }
             }
 
-
-            if (!Program.Database.CheckEmail(TextBoxEmail.Text))
-            {
-                UxHelper.SetNewToolTip(TextBoxEmail, _toolTips[1], "Email", "This email address already registered.");
-                status = false;
-            }
-            else
-            {
-                TextBoxEmail.BorderColor = Color.FromArgb(213, 218, 223);
-                _toolTips[1].RemoveAll();
-            }
-
             return status;
+        }
+
+        private void UCSignUp_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode != Keys.Enter) return;
+
+            var button = this.Controls["ButtonSignUp"] as Guna2Button;
+
+            button?.PerformClick();
         }
     }
 }

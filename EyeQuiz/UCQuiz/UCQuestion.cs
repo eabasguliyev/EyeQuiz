@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,29 +40,21 @@ namespace EyeQuiz.UCQuiz
 
         private void UCQuestion_Load(object sender, EventArgs e)
         {
-            //MessageBox.Show($"{PictureBoxCorrectAnswer.Location}");
-            //MessageBox.Show($"{PictureBoxUserAnswer.Location}");
-
-            //for (int i = 0; i < this.PanelAnswers.Controls.Count; i++)
-            //{
-            //    if (this.PanelAnswers.Controls[i] is Label lbl)
-            //    {
-            //        MessageBox.Show($"{lbl.Name}");
-            //    }
-            //}
-
-            //for (int i = 0; i < this.PanelRadioButtons.Controls.Count; i++)
-            //{
-            //    if (this.PanelRadioButtons.Controls[i] is Guna2CustomRadioButton lbl)
-            //    {
-            //        MessageBox.Show($"{lbl.Name}");
-            //    }
-            //}
+           
         }
 
         private void LabelQuestion_Click(object sender, EventArgs e)
         {
 
+        }
+
+        public Bitmap TakeScreenShot()
+        {
+            var bmp = new Bitmap(this.Width, this.Height);
+
+            this.DrawToBitmap(bmp, new Rectangle(0, 0, bmp.Width, bmp.Height));
+            
+            return bmp;
         }
     }
 }

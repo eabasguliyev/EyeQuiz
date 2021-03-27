@@ -293,7 +293,10 @@ namespace EyeQuiz.UCQuiz
             if (sender is Guna2CustomRadioButton rd)
             {
                 if(rd.Checked)
+                {
+                    ResetTotalQuestionTextBoxValue();
                     RadioButtonOnlyMeClick();
+                }
             }
         }
 
@@ -302,7 +305,10 @@ namespace EyeQuiz.UCQuiz
             if (sender is Guna2CustomRadioButton rd)
             {
                 if (rd.Checked)
+                {
+                    ResetTotalQuestionTextBoxValue();
                     RadioButtonAllClick();
+                }
             }
         }
 
@@ -345,8 +351,7 @@ namespace EyeQuiz.UCQuiz
             Quizzes.Clear();
 
             SelectedQuize = null;
-
-            TextBoxQuestionCount.PlaceholderText = "Total question count 0";
+            ResetTotalQuestionTextBoxValue();
 
             if (!LoadQuizzes())
                 return;
@@ -358,14 +363,21 @@ namespace EyeQuiz.UCQuiz
 
         }
 
+        private void ResetTotalQuestionTextBoxValue()
+        {
+            TextBoxQuestionCount.PlaceholderText = "Total question count 0";
+        }
         private void ButtonStart_Click(object sender, EventArgs e)
         {
             if (SelectedQuize == null)
                 return;
 
+
+            Form2.Instance.UserActivity = true;
+
             var QuizIndex = (int)SelectedQuize.Tag;
 
-            var next = new UCExam() {LastUc = this, Questions = Quizzes[QuizIndex].Questions};
+            var next = new UCExam() {LastUc = this, Questions = Quizzes[QuizIndex].Questions, TotalExamTimeInMinutes = Quizzes[QuizIndex].Questions.Count};
 
             Form2.Instance.Controls["PanelUserControls"].Controls.Add(next);
             next.BringToFront();

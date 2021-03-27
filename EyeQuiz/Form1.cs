@@ -2,7 +2,9 @@
 using System.Drawing;
 using System.Windows.Forms;
 using EyeQuiz.Helpers;
+using EyeQuiz.UCQuiz;
 using EyeQuiz.UCUserAccess;
+using Guna.UI2.WinForms;
 
 namespace EyeQuiz
 {
@@ -68,8 +70,14 @@ namespace EyeQuiz
         private void Form1_Load(object sender, EventArgs e)
         {
             Obj = this;
+            
             var login = new UCLogin();
             Form1.Instance.Controls["PanelUcArea"].Controls.Add(login);
+        }
+
+        private void PanelUcArea_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -52,6 +52,13 @@ namespace EyeQuiz.UCQuiz
 
         private void ButtonBack_Click(object sender, EventArgs e)
         {
+            if (Form2.Instance.UserActivity && UxHelper.AreYouSure("Are you sure? Your non-saved data will be lost.") == DialogResult.No)
+            {
+                return;
+            }
+
+            Form2.Instance.UserActivity = false;
+
             Form2.Instance.Controls["PanelUserControls"].Controls["UCCreateNewQuestion"].Dispose();
             LastUc.BringToFront();
         }

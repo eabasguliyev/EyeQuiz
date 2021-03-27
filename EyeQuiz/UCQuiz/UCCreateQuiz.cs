@@ -36,8 +36,9 @@ namespace EyeQuiz.UCQuiz
 
         private void ButtonCreateNex_Click(object sender, EventArgs e)
         {
-            var next = new UCCreateNewQuestion(){LastUc = this};
+            Form2.Instance.UserActivity = true;
 
+            var next = new UCCreateNewQuestion(){LastUc = this};
             Form2.Instance.Controls["PanelUserControls"].Controls.Add(next);
             next.BringToFront();
         }

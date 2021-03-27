@@ -133,6 +133,7 @@ namespace EyeQuiz
             this.PanelUcArea.Name = "PanelUcArea";
             this.PanelUcArea.Size = new System.Drawing.Size(619, 528);
             this.PanelUcArea.TabIndex = 6;
+            this.PanelUcArea.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelUcArea_Paint);
             // 
             // PictureBoxMinimize
             // 

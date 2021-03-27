@@ -15,6 +15,8 @@ namespace EyeQuiz
 
         public User User;
 
+        public bool UserActivity { get; set; }
+
         public Form2()
         {
             InitializeComponent();
@@ -61,12 +63,19 @@ namespace EyeQuiz
 
         private void ButtonLogout_Click(object sender, EventArgs e)
         {
+            if (UxHelper.AreYouSure("Are you sure to logout?") == DialogResult.No)
+                return;
+
             this.User = null;
             this.DialogResult = DialogResult.Cancel;
         }
 
         private void ButtonDashboard_Click(object sender, EventArgs e)
         {
+            if (this.UserActivity && UxHelper.AreYouSure("Are you sure? Your non-saved data will be lost.") == DialogResult.No)
+                return;
+
+            this.UserActivity = false;
             this.PanelUserControls.Controls["UCDashboard"].BringToFront();
 
             ClearUserControls();

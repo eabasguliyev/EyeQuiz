@@ -159,6 +159,7 @@ namespace EyeQuiz.UCUserAccess
             this.Name = "UCLogin";
             this.Size = new System.Drawing.Size(619, 528);
             this.Load += new System.EventHandler(this.UCLogin_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UCLogin_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxPasswordVisibility)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using EyeQuiz.Entities;
+using EyeQuiz.Enums;
 using EyeQuiz.Helpers;
 using Guna.UI2.WinForms;
 
@@ -14,6 +16,9 @@ namespace EyeQuiz.UCQuiz
         public UserControl LastUc { get; set; }
 
         public List<QuestionBlock> Questions { get; set; }
+        public int TotalExamTimeInMinutes { get; set; }
+        private Time _timeSpan;
+
         public Dictionary<Guid, Guid> AnsweredQuestions { get; set; } 
 
         public int QuestionIndex { get; set; }
@@ -26,9 +31,12 @@ namespace EyeQuiz.UCQuiz
         private List<int> VerticalLoc { get; set; }
         private List<int> HorizontalLoc { get; set; }
 
-        private QuizResult QuizResult { get; set; }
-
         public List<ResultQuestionBlock> ResultQuestionBlocks { get; set; }
+
+        private QuizResult _quizResult;
+        private bool _submitted;
+
+        private Timer _examTime;
 
         public UCExam()
         {
@@ -43,14 +51,7 @@ namespace EyeQuiz.UCQuiz
             };
             AnsweredQuestions = new Dictionary<Guid, Guid>();
             UcQuestions = new List<UCQuestion>();
-            /*
-             * Y 156
-Y 236
-Y 321
-Y 413
 
-X 7 - X - 47
-             */
             VerticalLoc = new List<int>()
             {
                 125, 189, 257, 329
@@ -62,6 +63,22 @@ X 7 - X - 47
             };
 
             ResultQuestionBlocks = new List<ResultQuestionBlock>();
+
+            _timeSpan = new Time();
+            _examTime = new Timer();
+        }
+
+        private void _examTime_Tick(object sender, EventArgs e)
+        {
+            _timeSpan.Decrement();
+
+            LabelTimeLeft.Text = $"Time left: {_timeSpan}";
+            if (_timeSpan.Status)
+            {
+                _examTime.Stop();
+                ButtonSubmit.PerformClick();
+                MessageBox.Show("Exam ended!");
+            }
         }
 
         private void UCExam_Load(object sender, EventArgs e)
@@ -75,6 +92,13 @@ X 7 - X - 47
             LoadQuestion(this.UcQuestion, Questions[QuestionIndex]);
 
             ChangeLabelQuestionNo();
+
+            _timeSpan.Minutes = TotalExamTimeInMinutes;
+
+            LabelTimeLeft.Text = $"Time left: {_timeSpan}";
+            _examTime.Interval = 1000;
+            _examTime.Tick += _examTime_Tick;
+            _examTime.Start();
         }
 
 
@@ -117,25 +141,46 @@ X 7 - X - 47
                 for (; nextIndex < Questions.Count; nextIndex++)
                 {
                     QuestionIndex = nextIndex;
+
                     var ucQuestion = new UCQuestion();
+
                     this.PanelUcQuestion.Controls.Add(ucQuestion);
+
                     LoadQuestion(ucQuestion, Questions[nextIndex]);
+
                     UcQuestions.Add(ucQuestion);
                 }
             }
+
+            _submitted = true;
+
+            _examTime.Stop();
+
             PanelQuestionControl.Controls["ButtonAccept"].Enabled = false;
             ButtonSubmit.Visible = false;
             ButtonGetResult.Visible = true;
+
             CheckQuestions();
             SetResults();
+            _quizResult = GetResults();
 
             QuestionIndex = 0;
             UcQuestion = UcQuestions[QuestionIndex];
+
             UcQuestion.BringToFront();
+
+            Form2.Instance.UserActivity = false;
         }
 
         private void ButtonBack_Click(object sender, EventArgs e)
         {
+            if (Form2.Instance.UserActivity && UxHelper.AreYouSure("Are you sure? Your exam record will be deleted.") == DialogResult.No)
+            {
+                return;
+            }
+
+            Form2.Instance.UserActivity = false;
+
             this.Dispose();
             LastUc.BringToFront();
         }
@@ -154,7 +199,8 @@ X 7 - X - 47
 
             ChangeLabelQuestionNo();
 
-            this.ButtonAccept.Enabled = !UcQuestion.AcceptButtonClicked;
+            if(!_submitted) 
+                this.ButtonAccept.Enabled = !UcQuestion.AcceptButtonClicked;
         }
 
         private void ButtonNext_Click(object sender, EventArgs e)
@@ -181,7 +227,9 @@ X 7 - X - 47
             UcQuestion.BringToFront();
             ChangeLabelQuestionNo();
 
-            this.ButtonAccept.Enabled = !UcQuestion.AcceptButtonClicked;
+
+            if(!_submitted)
+                this.ButtonAccept.Enabled = !UcQuestion.AcceptButtonClicked;
         }
 
         private void ButtonAccept_Click(object sender, EventArgs e)
@@ -257,8 +305,6 @@ X 7 - X - 47
 
         private void CheckQuestions()
         {
-            var result = new QuizResult();
-
             for (var i = 0; i < UcQuestions.Count; i++)
             {
                 var resultQuestionBlock = new ResultQuestionBlock(){QuestionId = Questions[i].Guid};
@@ -285,11 +331,14 @@ X 7 - X - 47
                     var answerId = (Guid)radioButton.Tag;
 
                     AnswerStatus answerStatus;
-                    if (answerId == correctAnswerId)
-                        answerStatus = AnswerStatus.CorrectAnswer;
+
+                    if (ucQuestion.AcceptButtonClicked)
+                    {
+                        answerStatus = answerId == correctAnswerId ? AnswerStatus.CorrectAnswer : AnswerStatus.IncorrectAnswer;
+                    }
                     else
                     {
-                        answerStatus = AnswerStatus.IncorrectAnswer;
+                        answerStatus = AnswerStatus.NotSure;
                     }
 
                     resultQuestionBlock.Answer = new CheckedAnswer() {AnswerId = answerId, AnswerStatus = answerStatus};
@@ -331,14 +380,29 @@ X 7 - X - 47
 
                     if (resultQuestionBlock.Answer.AnswerStatus == AnswerStatus.CorrectAnswer)
                         pcBxUserAnswer.Image = Properties.Resources.checked_green_80px;
+                    else if (resultQuestionBlock.Answer.AnswerStatus == AnswerStatus.NotSure)
+                    {
+                        pcBxUserAnswer.Image = Properties.Resources.decision_26px;
+                    }
                     else
                     {
-                        pcBxUserAnswer.Image = Properties.Resources.multiply_24px;
+                        pcBxUserAnswer.Image = Properties.Resources.wrong_30px;
                     }
                 }
             }
         }
 
+        private QuizResult GetResults()
+        {
+            var result = new QuizResult();
+
+            foreach (var resultQuestionBlock in ResultQuestionBlocks)
+            {
+                result.Results[resultQuestionBlock.Answer.AnswerStatus]++;
+            }
+
+            return result;
+        }
         private int GetAnswerRadioButtonIndex(UCQuestion ucQuestion, Guid questionAnswerId)
         {
             var panelRadioButtons = ucQuestion.Controls["PanelRadioButtons"] as Panel;
@@ -355,6 +419,27 @@ X 7 - X - 47
             }
 
             return -1;
+        }
+
+        private void ButtonGetResult_Click(object sender, EventArgs e)
+        {
+            //his.UcQuestion.UcScreenShot();
+
+            //var dirInfo = new DirectoryInfo(@".\");
+
+            //if (!Directory.Exists($@"{dirInfo.FullName}\Images\"))
+            //    dirInfo.CreateSubdirectory(@"Images\");
+
+            //var bmp = this.UcQuestion.TakeScreenShot();
+            //var filePath = $@"{dirInfo.FullName}Images\ucQuestion{QuestionIndex + 1}.png";
+
+
+            //bmp.Save(filePath);
+
+            var next = new UCResult(){LastUc = this, QuizResult = _quizResult};
+
+            Form2.Instance.Controls["PanelUserControls"].Controls.Add(next);
+            next.BringToFront();
         }
     }
 }

@@ -37,12 +37,12 @@ namespace EyeQuiz.UCQuiz
             this.RadioButtonAnswer2 = new Guna.UI2.WinForms.Guna2CustomRadioButton();
             this.RadioButtonAnswer1 = new Guna.UI2.WinForms.Guna2CustomRadioButton();
             this.PanelAnswers = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.PictureBoxUserAnswer = new System.Windows.Forms.PictureBox();
             this.PictureBoxCorrectAnswer = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.PanelRadioButtons.SuspendLayout();
             this.PanelAnswers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxUserAnswer)).BeginInit();
@@ -167,9 +167,45 @@ namespace EyeQuiz.UCQuiz
             this.PanelAnswers.Size = new System.Drawing.Size(765, 361);
             this.PanelAnswers.TabIndex = 16;
             // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.Location = new System.Drawing.Point(1, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(764, 79);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "Answer";
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Location = new System.Drawing.Point(3, 89);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(764, 79);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "Answer";
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.Location = new System.Drawing.Point(3, 174);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(764, 79);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Answer";
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label4.Location = new System.Drawing.Point(1, 266);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(764, 79);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Answer";
+            // 
             // PictureBoxUserAnswer
             // 
-            this.PictureBoxUserAnswer.Image = global::EyeQuiz.Properties.Resources.multiply_24px;
+            this.PictureBoxUserAnswer.Image = global::EyeQuiz.Properties.Resources.wrong_30px;
             this.PictureBoxUserAnswer.Location = new System.Drawing.Point(41, 411);
             this.PictureBoxUserAnswer.Name = "PictureBoxUserAnswer";
             this.PictureBoxUserAnswer.Size = new System.Drawing.Size(37, 36);
@@ -188,42 +224,6 @@ namespace EyeQuiz.UCQuiz
             this.PictureBoxCorrectAnswer.TabIndex = 17;
             this.PictureBoxCorrectAnswer.TabStop = false;
             this.PictureBoxCorrectAnswer.Visible = false;
-            // 
-            // label4
-            // 
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(1, 266);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(764, 79);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "Answer";
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(3, 174);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(764, 79);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Answer";
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(3, 89);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(764, 79);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Answer";
-            // 
-            // label3
-            // 
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(1, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(764, 79);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "Answer";
             // 
             // UCQuestion
             // 
