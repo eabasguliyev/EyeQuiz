@@ -180,6 +180,8 @@ namespace EyeQuiz.UCQuiz
                 return;
             }
 
+
+            _examTime.Stop();
             Form2.Instance.UserActivity = false;
 
             this.Dispose();

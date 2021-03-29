@@ -146,7 +146,7 @@ namespace EyeQuiz.UCQuiz
             var save = new SaveFileDialog();
 
             save.Filter = "Pdf files (*.pdf)|*.pdf";
-
+            save.Title = "Save the result";
 
             if (save.ShowDialog() != DialogResult.OK)
                 return;

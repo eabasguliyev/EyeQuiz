@@ -8,7 +8,7 @@ namespace EyeQuiz.Extensions
     {
         public static User Login(this Database db, string email, string password)
         {
-            var user = db.Users.SingleOrDefault(u => u.Email == email);
+            var user = db.Users.SingleOrDefault(u => !u.FacebookUser && u.Email == email);
 
             if (user == null)
                 throw new UserNotFoundException($"There is no user associated this email: {email}");

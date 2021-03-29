@@ -1,12 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using EyeQuiz.AppExceptions;
 using EyeQuiz.Entities;
@@ -108,16 +102,7 @@ namespace EyeQuiz.UCUserAccess
                 return;
             }
 
-            var form2 = new Form2();
-
-            form2.User = user;
-
-            Form1.Instance.Hide();
-
-            form2.ShowDialog();
-
-            Form1.Instance.Show();
-
+            Form1.Instance.Login(user);
             ClearUserInputs();
         }
 
@@ -155,13 +140,20 @@ namespace EyeQuiz.UCUserAccess
         }
         private void ButtonLoginFb_Click(object sender, EventArgs e)
         {
-            //var ucFbLogin = new UCFacebookLogin();
+            try
+            {
+                var ucFbLogin = new UCFacebookLogin();
 
-            //Form1.Instance.Controls["PanelUcArea"].Controls.Add(ucFbLogin);
-            //ucFbLogin.Login();
-            //ucFbLogin.BringToFront();
+                Form1.Instance.Controls["PanelUcArea"].Controls.Add(ucFbLogin);
+
+                ucFbLogin.BringToFront();
+                ClearUserInputs();
+            }
+            catch (Exception exception)
+            {
+                // log
+            }
         }
-
         private void UCLogin_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode != Keys.Enter) return;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using EyeQuiz.Entities;
 using EyeQuiz.Helpers;
 using EyeQuiz.UCQuiz;
 using EyeQuiz.UCUserAccess;
@@ -75,6 +76,18 @@ namespace EyeQuiz
             Form1.Instance.Controls["PanelUcArea"].Controls.Add(login);
         }
 
+        public void Login(User user)
+        {
+            var form2 = new Form2();
+
+            form2.User = user;
+
+            Form1.Instance.Hide();
+
+            form2.ShowDialog();
+
+            Form1.Instance.Show();
+        }
         private void PanelUcArea_Paint(object sender, PaintEventArgs e)
         {
 

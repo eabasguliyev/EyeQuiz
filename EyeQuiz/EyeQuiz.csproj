@@ -97,6 +97,7 @@
     <Compile Include="AppExceptions\UserNotFoundException.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="Entities\Answer.cs" />
+    <Compile Include="Entities\FacebookApiConfig.cs" />
     <Compile Include="Entities\QuizResult.cs" />
     <Compile Include="Entities\Time.cs" />
     <Compile Include="Enums\AnswerStatus.cs" />

@@ -183,8 +183,8 @@ namespace EyeQuiz.UCQuiz
             this.Controls.Add(this.LabelTimeLeft);
             this.Controls.Add(this.ButtonBack);
             this.Controls.Add(this.PanelUcQuestion);
-            this.Controls.Add(this.ButtonGetResult);
             this.Controls.Add(this.ButtonSubmit);
+            this.Controls.Add(this.ButtonGetResult);
             this.Name = "UCExam";
             this.Size = new System.Drawing.Size(941, 655);
             this.Load += new System.EventHandler(this.UCExam_Load);

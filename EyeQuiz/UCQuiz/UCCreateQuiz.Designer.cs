@@ -56,7 +56,7 @@ namespace EyeQuiz.UCQuiz
             this.PanelCreateQuiz.Controls.Add(this.pictureBox1);
             this.PanelCreateQuiz.Location = new System.Drawing.Point(186, 101);
             this.PanelCreateQuiz.Name = "PanelCreateQuiz";
-            this.PanelCreateQuiz.Size = new System.Drawing.Size(251, 395);
+            this.PanelCreateQuiz.Size = new System.Drawing.Size(251, 444);
             this.PanelCreateQuiz.TabIndex = 1;
             // 
             // ButtonCreateNex
@@ -69,7 +69,7 @@ namespace EyeQuiz.UCQuiz
             this.ButtonCreateNex.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.ButtonCreateNex.ForeColor = System.Drawing.Color.White;
             this.ButtonCreateNex.HoverState.Parent = this.ButtonCreateNex;
-            this.ButtonCreateNex.Location = new System.Drawing.Point(0, 350);
+            this.ButtonCreateNex.Location = new System.Drawing.Point(0, 399);
             this.ButtonCreateNex.Name = "ButtonCreateNex";
             this.ButtonCreateNex.ShadowDecoration.Parent = this.ButtonCreateNex;
             this.ButtonCreateNex.Size = new System.Drawing.Size(251, 45);
@@ -81,7 +81,7 @@ namespace EyeQuiz.UCQuiz
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Myanmar Text", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(32, 281);
+            this.label2.Location = new System.Drawing.Point(29, 305);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(129, 27);
             this.label2.TabIndex = 2;
@@ -116,7 +116,7 @@ namespace EyeQuiz.UCQuiz
             this.PanelDragAndDrop.Controls.Add(this.pictureBox2);
             this.PanelDragAndDrop.Location = new System.Drawing.Point(487, 101);
             this.PanelDragAndDrop.Name = "PanelDragAndDrop";
-            this.PanelDragAndDrop.Size = new System.Drawing.Size(251, 395);
+            this.PanelDragAndDrop.Size = new System.Drawing.Size(251, 444);
             this.PanelDragAndDrop.TabIndex = 4;
             // 
             // ButtonDragAndDropNext
@@ -129,7 +129,7 @@ namespace EyeQuiz.UCQuiz
             this.ButtonDragAndDropNext.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.ButtonDragAndDropNext.ForeColor = System.Drawing.Color.White;
             this.ButtonDragAndDropNext.HoverState.Parent = this.ButtonDragAndDropNext;
-            this.ButtonDragAndDropNext.Location = new System.Drawing.Point(0, 350);
+            this.ButtonDragAndDropNext.Location = new System.Drawing.Point(0, 399);
             this.ButtonDragAndDropNext.Name = "ButtonDragAndDropNext";
             this.ButtonDragAndDropNext.ShadowDecoration.Parent = this.ButtonDragAndDropNext;
             this.ButtonDragAndDropNext.Size = new System.Drawing.Size(251, 45);
@@ -141,7 +141,7 @@ namespace EyeQuiz.UCQuiz
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Myanmar Text", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(30, 278);
+            this.label3.Location = new System.Drawing.Point(30, 305);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(200, 54);
             this.label3.TabIndex = 2;
