@@ -33,7 +33,7 @@ namespace EyeQuiz.UCQuiz
 
         public List<ResultQuestionBlock> ResultQuestionBlocks { get; set; }
 
-        private QuizResult _quizResult;
+        private Result _quizResult;
         private bool _submitted;
 
         private Timer _examTime;
@@ -247,6 +247,7 @@ namespace EyeQuiz.UCQuiz
 
             AnsweredQuestions[currentQuestion.Guid] = currentQuestion.Answers[answerIndex].Guid;
 
+            this.UcQuestion.Controls["PanelRadioButtons"].Enabled = false;
             this.UcQuestion.AcceptButtonClicked = true;
             ButtonAccept.Enabled = false;
         }
@@ -393,9 +394,9 @@ namespace EyeQuiz.UCQuiz
             }
         }
 
-        private QuizResult GetResults()
+        private Result GetResults()
         {
-            var result = new QuizResult();
+            var result = new Result();
 
             foreach (var resultQuestionBlock in ResultQuestionBlocks)
             {
@@ -424,23 +425,26 @@ namespace EyeQuiz.UCQuiz
 
         private void ButtonGetResult_Click(object sender, EventArgs e)
         {
-            //his.UcQuestion.UcScreenShot();
-
-            //var dirInfo = new DirectoryInfo(@".\");
-
-            //if (!Directory.Exists($@"{dirInfo.FullName}\Images\"))
-            //    dirInfo.CreateSubdirectory(@"Images\");
-
-            //var bmp = this.UcQuestion.TakeScreenShot();
-            //var filePath = $@"{dirInfo.FullName}Images\ucQuestion{QuestionIndex + 1}.png";
-
-
-            //bmp.Save(filePath);
-
             var next = new UCResult(){LastUc = this, QuizResult = _quizResult, AnimationStatus = _animationStatus};
             _animationStatus = false;
             Form2.Instance.Controls["PanelUserControls"].Controls.Add(next);
             next.BringToFront();
+        }
+
+        public List<Bitmap> GetQuestionScreenShots()
+        {
+            var lst = new List<Bitmap>();
+            
+            for (int i = 0; i < UcQuestions.Count; i++)
+            {
+                var ucQuestion = UcQuestions[i];
+
+                var bitmap = ucQuestion.TakeScreenShot();
+
+                lst.Add(bitmap);
+            }
+
+            return lst;
         }
     }
 }

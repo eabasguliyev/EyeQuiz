@@ -1,14 +1,18 @@
 ﻿using System;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using EyeQuiz.Entities;
 using EyeQuiz.Enums;
+using EyeQuiz.Helpers;
+using EyeQuiz.Helpers.FileHelpers;
+using EyeQuiz.Interfaces;
 using Guna.UI2.AnimatorNS;
 using Guna.UI2.WinForms;
 
 namespace EyeQuiz.UCQuiz
 {
-    public partial class UCResult : UserControl
+    public partial class UCResult : UserControl, IScreenShot
     {
         public UserControl LastUc { get; set; }
 
@@ -16,7 +20,7 @@ namespace EyeQuiz.UCQuiz
 
         private Timer _timer;
         private int _timerCounter = 10;
-        public QuizResult QuizResult { get; set; }
+        public Result QuizResult { get; set; }
 
         public bool AnimationStatus { get; set; }
         public UCResult()
@@ -38,6 +42,7 @@ namespace EyeQuiz.UCQuiz
             {
                 _timer.Stop();
                 SetResults();
+                this.ButtonSave.Visible = true;
             }
         }
 
@@ -74,6 +79,7 @@ namespace EyeQuiz.UCQuiz
             else
             {
                 SetResults();
+                this.ButtonSave.Visible = true;
             }
         }
 
@@ -131,6 +137,46 @@ namespace EyeQuiz.UCQuiz
 
                 label.Text = answerCount.ToString();
             }
+        }
+
+        private void ButtonSave_Click(object sender, EventArgs e)
+        {
+            var ucExam = Form2.Instance.Controls["PanelUserControls"].Controls["UcExam"] as UCExam;
+
+            var save = new SaveFileDialog();
+
+            save.Filter = "Pdf files (*.pdf)|*.pdf";
+
+
+            if (save.ShowDialog() != DialogResult.OK)
+                return;
+
+            var fileName = save.FileName.EndsWith(".pdf") ? save.FileName : save.FileName + ".pdf";
+
+            var images = ucExam?.GetQuestionScreenShots();
+
+            if (images == null)
+            {
+                MessageBox.Show("Result could not be save", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var quizResult = new QuizResult();
+
+            quizResult.QuestionImages = images;
+
+            quizResult.Result = TakeScreenShot();
+
+            quizResult.result = QuizResult;
+
+            PdfHelper.ManipulatePdf(fileName, quizResult);
+
+            MessageBox.Show("Result saved", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        public Bitmap TakeScreenShot()
+        {
+            return ScreenShot.TakeArea(this.PanelProgressBars);
         }
     }
 }

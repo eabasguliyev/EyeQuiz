@@ -216,9 +216,9 @@ namespace EyeQuiz.UCQuiz
             this.LabelNotAnsweredCounts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(26)))), ((int)(((byte)(219)))));
             this.LabelNotAnsweredCounts.Location = new System.Drawing.Point(10, 100);
             this.LabelNotAnsweredCounts.Name = "LabelNotAnsweredCounts";
-            this.LabelNotAnsweredCounts.Size = new System.Drawing.Size(18, 20);
+            this.LabelNotAnsweredCounts.Size = new System.Drawing.Size(21, 20);
             this.LabelNotAnsweredCounts.TabIndex = 3;
-            this.LabelNotAnsweredCounts.Text = "0";
+            this.LabelNotAnsweredCounts.Text = "...";
             // 
             // LabelCorrectCounts
             // 
@@ -227,9 +227,9 @@ namespace EyeQuiz.UCQuiz
             this.LabelCorrectCounts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(201)))), ((int)(((byte)(77)))));
             this.LabelCorrectCounts.Location = new System.Drawing.Point(10, 17);
             this.LabelCorrectCounts.Name = "LabelCorrectCounts";
-            this.LabelCorrectCounts.Size = new System.Drawing.Size(18, 20);
+            this.LabelCorrectCounts.Size = new System.Drawing.Size(21, 20);
             this.LabelCorrectCounts.TabIndex = 0;
-            this.LabelCorrectCounts.Text = "0";
+            this.LabelCorrectCounts.Text = "...";
             // 
             // LabelNotSureCounts
             // 
@@ -238,9 +238,9 @@ namespace EyeQuiz.UCQuiz
             this.LabelNotSureCounts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(203)))), ((int)(((byte)(64)))));
             this.LabelNotSureCounts.Location = new System.Drawing.Point(10, 45);
             this.LabelNotSureCounts.Name = "LabelNotSureCounts";
-            this.LabelNotSureCounts.Size = new System.Drawing.Size(18, 20);
+            this.LabelNotSureCounts.Size = new System.Drawing.Size(21, 20);
             this.LabelNotSureCounts.TabIndex = 2;
-            this.LabelNotSureCounts.Text = "0";
+            this.LabelNotSureCounts.Text = "...";
             // 
             // LabelIncorrectCounts
             // 
@@ -249,9 +249,9 @@ namespace EyeQuiz.UCQuiz
             this.LabelIncorrectCounts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(64)))), ((int)(((byte)(58)))));
             this.LabelIncorrectCounts.Location = new System.Drawing.Point(10, 73);
             this.LabelIncorrectCounts.Name = "LabelIncorrectCounts";
-            this.LabelIncorrectCounts.Size = new System.Drawing.Size(18, 20);
+            this.LabelIncorrectCounts.Size = new System.Drawing.Size(21, 20);
             this.LabelIncorrectCounts.TabIndex = 1;
-            this.LabelIncorrectCounts.Text = "0";
+            this.LabelIncorrectCounts.Text = "...";
             // 
             // ButtonSave
             // 
@@ -262,12 +262,14 @@ namespace EyeQuiz.UCQuiz
             this.ButtonSave.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.ButtonSave.ForeColor = System.Drawing.Color.White;
             this.ButtonSave.HoverState.Parent = this.ButtonSave;
-            this.ButtonSave.Location = new System.Drawing.Point(500, 492);
+            this.ButtonSave.Location = new System.Drawing.Point(500, 500);
             this.ButtonSave.Name = "ButtonSave";
             this.ButtonSave.ShadowDecoration.Parent = this.ButtonSave;
             this.ButtonSave.Size = new System.Drawing.Size(142, 56);
             this.ButtonSave.TabIndex = 11;
             this.ButtonSave.Text = "SAVE";
+            this.ButtonSave.Visible = false;
+            this.ButtonSave.Click += new System.EventHandler(this.ButtonSave_Click);
             // 
             // label2
             // 

@@ -1,21 +1,18 @@
 ﻿using System.Collections.Generic;
-using EyeQuiz.Enums;
+using System.Drawing;
+using iText.Layout.Element;
 
 namespace EyeQuiz.Entities
 {
     public class QuizResult
     {
-        public Dictionary<AnswerStatus, int> Results { get; set; }
+        public List<Bitmap> QuestionImages { get; set; }
+        public Bitmap Result { get; set; }
+        public Result result { get; set; }
 
         public QuizResult()
         {
-            Results = new Dictionary<AnswerStatus, int>()
-            {
-                {AnswerStatus.CorrectAnswer, 0},
-                {AnswerStatus.IncorrectAnswer, 0},
-                {AnswerStatus.NotSure, 0},
-                {AnswerStatus.NotAnswered, 0},
-            };
+            QuestionImages = new List<Bitmap>();
         }
     }
 }

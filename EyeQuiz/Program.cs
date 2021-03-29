@@ -42,10 +42,10 @@ namespace EyeQuiz
                 JsonHelper.Serialize(Database);
             }
 
-            Application.Run(new Form1());
+            //Application.Run(new Form1());
 
-            //var form2 = new Form2() { User = Database.Users[0] };
-            //Application.Run(form2);
+            var form2 = new Form2() { User = Database.Users[0] };
+            Application.Run(form2);
         }
     }
 }

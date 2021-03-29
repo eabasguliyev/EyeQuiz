@@ -9,11 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using EyeQuiz.Entities;
+using EyeQuiz.Helpers;
+using EyeQuiz.Interfaces;
 using Guna.UI2.WinForms;
 
 namespace EyeQuiz.UCQuiz
 {
-    public partial class UCQuestion : UserControl
+    public partial class UCQuestion : UserControl, IScreenShot
     {
         public bool AcceptButtonClicked { get; set; }
         public UCQuestion()
@@ -50,11 +52,7 @@ namespace EyeQuiz.UCQuiz
 
         public Bitmap TakeScreenShot()
         {
-            var bmp = new Bitmap(this.Width, this.Height);
-
-            this.DrawToBitmap(bmp, new Rectangle(0, 0, bmp.Width, bmp.Height));
-            
-            return bmp;
+            return ScreenShot.TakeArea(this);
         }
     }
 }
