@@ -128,12 +128,14 @@
       <DependentUpon>Form3.cs</DependentUpon>
     </Compile>
     <Compile Include="HashAlgorithms\Sha256.cs" />
+    <Compile Include="Helpers\ControlHelper.cs" />
     <Compile Include="Helpers\DatabaseHelper.cs" />
     <Compile Include="Helpers\FileHelpers\FileHelper.cs" />
     <Compile Include="Helpers\FileHelpers\JsonHelper.cs" />
     <Compile Include="Helpers\FileHelpers\PdfHelper.cs" />
     <Compile Include="Helpers\FileHelpers\XmlHelper.cs" />
     <Compile Include="Helpers\FormHelper.cs" />
+    <Compile Include="Entities\QuizRandomize.cs" />
     <Compile Include="Helpers\ScreenShot.cs" />
     <Compile Include="Helpers\UserHelper.cs" />
     <Compile Include="Helpers\UxHelper.cs" />

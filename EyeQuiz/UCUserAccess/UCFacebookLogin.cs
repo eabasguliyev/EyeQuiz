@@ -61,6 +61,7 @@ namespace EyeQuiz.UCUserAccess
 
         private void UCFacebookLogin_Load(object sender, EventArgs e)
         {
+
         }
 
         protected override void OnLoad(EventArgs e)
@@ -99,32 +100,36 @@ namespace EyeQuiz.UCUserAccess
             {
                 FacebookOAuthResult = oAuthResult;
 
-                var fb = new FacebookClient(FacebookOAuthResult.AccessToken);
-
-                dynamic result = fb.Get("me?fields=email,name");
-                
-                //GetData(user_id, fb.AccessToken);
-
-                MessageBox.Show($"Welcome {result.name}");
-
-                var userEmail = (string) result.email;
-
-                if (Program.Database.CheckEmail((string) result.email))
+                if (FacebookOAuthResult.AccessToken != null)
                 {
-                    var userFullname = (string)result.name;
-                    var newUser = new User()
+                    var fb = new FacebookClient(FacebookOAuthResult.AccessToken);
+
+                    dynamic result = fb.Get("me?fields=email,name");
+
+                    //GetData(user_id, fb.AccessToken);
+
+                    MessageBox.Show($"Welcome {result.name}");
+
+                    var userEmail = (string)result.email;
+
+                    if (Program.Database.CheckEmail((string)result.email))
                     {
-                        FacebookUser = true,
-                        Fullname = userFullname,
-                        Email = userEmail,
-                    };
+                        var userFullname = (string)result.name;
+                        var newUser = new User()
+                        {
+                            FacebookUser = true,
+                            Fullname = userFullname,
+                            Email = userEmail,
+                        };
 
-                    Register(newUser);
+                        Register(newUser);
+                    }
+
+                    LogoutClient(fb.AccessToken);
+
+                    Form1.Instance.Login(Login(userEmail));
+                    this.WebBrowser.AllowNavigation = false;
                 }
-
-                LogoutClient(fb.AccessToken);
-
-                Form1.Instance.Login(Login(userEmail));
 
                 this.Dispose();
 
@@ -139,13 +144,7 @@ namespace EyeQuiz.UCUserAccess
         }
 
         public string ResponseString { get; set; }
-        private async Task GetData(string user_id, string access_token)
-        {
-            var client = new HttpClient();
 
-            ResponseString = await client.GetStringAsync($@"https://graph.facebook.com/{user_id}?fields=id,name,email&access_token={access_token}");
-            
-        }
 
         private void WebBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {

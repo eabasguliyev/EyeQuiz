@@ -40,6 +40,7 @@ namespace EyeQuiz.UCQuiz
 
             var next = new UCCreateNewQuestion(){LastUc = this};
             Form2.Instance.Controls["PanelUserControls"].Controls.Add(next);
+
             next.BringToFront();
         }
 

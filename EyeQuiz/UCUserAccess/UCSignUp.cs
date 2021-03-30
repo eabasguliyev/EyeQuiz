@@ -37,7 +37,7 @@ namespace EyeQuiz.UCUserAccess
             
             Form1.Instance.Text = "Sign Up";
             Form1.Instance.Controls["PanelFormLeft"].Controls["label1"].Text = "Sign Up";
-            Form1.Instance.Controls["PanelFormLeft"].Controls["LabelNote"].Text = @"Get started in a few clicks 
+            Form1.Instance.Controls["PanelFormLeft"].Controls["LabelNote"].Text = @"Get started in a minute 
 and create or take quiz.";
             Form1.Instance.Controls["PanelFormLeft"].Controls["PanelInner"].Controls["label2"].Text = "Have an account already?";
             Form1.Instance.Controls["PanelFormLeft"].Controls["PanelInner"].Controls["LabelSwitch"].Text = "Login";
@@ -76,12 +76,12 @@ and create or take quiz.";
         {
             if (_visible2)
             {
-                PictureBoxPasswordVisibility.Image = Properties.Resources.eye_30px;
+                PictureBoxPasswordVisibility2.Image = Properties.Resources.eye_30px;
                 TextBoxPassword2.PasswordChar = '*';
             }
             else
             {
-                PictureBoxPasswordVisibility.Image = Properties.Resources.invisible_30px;
+                PictureBoxPasswordVisibility2.Image = Properties.Resources.invisible_30px;
                 TextBoxPassword2.PasswordChar = '\0';
             }
 

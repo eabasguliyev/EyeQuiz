@@ -59,6 +59,8 @@ namespace EyeQuiz
             Obj = this;
             var dashboard = new UCDashboard();
             this.PanelUserControls.Controls.Add(dashboard);
+
+            
         }
 
         private void ButtonLogout_Click(object sender, EventArgs e)
@@ -89,6 +91,11 @@ namespace EyeQuiz
 
                 control.Dispose();
             }
+        }
+
+        private void PanelUserControls_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

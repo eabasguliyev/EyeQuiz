@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using EyeQuiz.Entities;
+using EyeQuiz.Helpers;
 using EyeQuiz.Helpers.FileHelpers;
 using Guna.UI2.WinForms;
 
@@ -16,12 +19,16 @@ namespace EyeQuiz.UCQuiz
         public Panel SelectedQuize;
         public int QuizCount = 0;
         public List<QuestionsBlock> Quizzes { get; set; }
+        private QuizRandomize _quizRandomize;
 
+        private ToolTip _countToolTip;
         public UCQuizeList()
         {
             InitializeComponent();
 
             Quizzes = new List<QuestionsBlock>();
+            _quizRandomize = new QuizRandomize();
+            _countToolTip = new ToolTip();
         }
 
         private void UCQuizeList_Load(object sender, EventArgs e)
@@ -98,7 +105,8 @@ namespace EyeQuiz.UCQuiz
 
             panelQuiz.BackColor = Color.FromArgb(137, 251, 162);
             SelectedQuize = panelQuiz;
-
+            ButtonStart.Enabled = true;
+            TextBoxQuestionCount.Text = String.Empty;
             var quizIndex = (int)panelQuiz.Tag;
 
             TextBoxQuestionCount.PlaceholderText = $"Total question count {Quizzes[quizIndex].Questions.Count}";
@@ -320,6 +328,9 @@ namespace EyeQuiz.UCQuiz
 
         private void RadioButtonAllClick()
         {
+            SelectedQuize = null;
+            ButtonStart.Enabled = false;
+            TextBoxQuestionCount.Text = String.Empty;
             this.PanelQuizeList.Controls.Clear();
 
             LoadQuizzesToListView(Quizzes);
@@ -329,6 +340,9 @@ namespace EyeQuiz.UCQuiz
         {
             var result = FilterByOwnerId();
 
+            SelectedQuize = null;
+            ButtonStart.Enabled = false;
+            TextBoxQuestionCount.Text = String.Empty;
             this.PanelQuizeList.Controls.Clear();
 
             if (result.Count == 0)
@@ -367,6 +381,8 @@ namespace EyeQuiz.UCQuiz
             Quizzes.Clear();
 
             SelectedQuize = null;
+            ButtonStart.Enabled = false;
+            TextBoxQuestionCount.Text = String.Empty;
             ResetTotalQuestionTextBoxValue();
 
             if (!LoadQuizzes())
@@ -388,12 +404,38 @@ namespace EyeQuiz.UCQuiz
             if (SelectedQuize == null)
                 return;
 
-
+            
             Form2.Instance.UserActivity = true;
 
             var QuizIndex = (int)SelectedQuize.Tag;
 
-            var next = new UCExam() {LastUc = this, Questions = Quizzes[QuizIndex].Questions, TotalExamTimeInMinutes = Quizzes[QuizIndex].Questions.Count};
+            var questionCount = 0;
+
+            if (!String.IsNullOrWhiteSpace(TextBoxQuestionCount.Text))
+            {
+                var count = Convert.ToInt32(TextBoxQuestionCount.Text);
+
+                if (count > Quizzes[QuizIndex].Questions.Count)
+                {
+                    // code
+                    UxHelper.SetNewToolTip(TextBoxQuestionCount, _countToolTip, "Question count", "Question count can not be greater than total questions");
+                    return;
+                }
+                else
+                {
+                    _countToolTip.RemoveAll();
+                    TextBoxQuestionCount.BorderColor = Color.FromArgb(213, 218, 223);
+                    questionCount = count;
+                }
+            }
+
+            var randomQuestions = _quizRandomize.RandomizeQuestions(Quizzes[QuizIndex].Questions);
+
+            if (questionCount != 0)
+            {
+                randomQuestions = randomQuestions.Take(questionCount).ToList();
+            }
+            var next = new UCExam() {LastUc = this, Questions = randomQuestions, TotalExamTimeInMinutes = Quizzes[QuizIndex].Questions.Count};
 
             Form2.Instance.Controls["PanelUserControls"].Controls.Add(next);
             next.BringToFront();
@@ -402,16 +444,20 @@ namespace EyeQuiz.UCQuiz
         private void TextBoxSearch_TextChanged(object sender, EventArgs e)
         {
             QuizCount = 0;
+            this.PanelQuizeList.Controls.Clear();
 
             if (String.IsNullOrWhiteSpace(TextBoxSearch.Text))
             {
-                LoadQuizzesToListView(Quizzes);
+                if(RadioButtonAll.Checked)
+                    RadioButtonAllClick();
+                else
+                    RadioButtonOnlyMeClick();
+                
                 return;
             }
 
             var result = FilterByName(TextBoxSearch.Text);
 
-            this.PanelQuizeList.Controls.Clear();
 
             if (result.Count == 0)
             {
@@ -427,6 +473,22 @@ namespace EyeQuiz.UCQuiz
             }
 
             LoadQuizzesToListView(result);
+        }
+
+        private void TextBoxQuestionCount_TextChanged(object sender, EventArgs e)
+        {
+            var txtBox = sender as Guna2TextBox;
+
+            ControlHelper.ChangeTextBoxForeColor(txtBox);
+
+            var charCount = txtBox.Text.Length;
+
+            if (txtBox.Text.Length == 1 && txtBox.Text[0] == '0')
+            {
+                txtBox.Text = String.Empty;
+            }
+            else if (charCount > 0 && !Regex.IsMatch(txtBox.Text, "^[0-9]"))
+                txtBox.Text = txtBox.Text.Remove(charCount - 1);
         }
     }
 }

@@ -255,6 +255,7 @@ namespace EyeQuiz.UCQuiz
             // 
             this.ButtonStart.CheckedState.Parent = this.ButtonStart;
             this.ButtonStart.CustomImages.Parent = this.ButtonStart;
+            this.ButtonStart.Enabled = false;
             this.ButtonStart.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(128)))), ((int)(((byte)(212)))));
             this.ButtonStart.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.ButtonStart.ForeColor = System.Drawing.Color.White;
@@ -289,6 +290,7 @@ namespace EyeQuiz.UCQuiz
             this.TextBoxQuestionCount.ShadowDecoration.Parent = this.TextBoxQuestionCount;
             this.TextBoxQuestionCount.Size = new System.Drawing.Size(204, 45);
             this.TextBoxQuestionCount.TabIndex = 11;
+            this.TextBoxQuestionCount.TextChanged += new System.EventHandler(this.TextBoxQuestionCount_TextChanged);
             // 
             // ButtonBack
             // 

@@ -117,6 +117,11 @@ namespace EyeQuiz.UCQuiz
         {
             if (!AddQuestionAndUpdate())
                 return;
+            if (string.IsNullOrWhiteSpace(QuestionsBlock.FileName) && PanelQuestions.Controls.Count == 0)
+            {
+                MessageBox.Show("There is nothing to save!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             var dirPath = $@"Questions\{Form2.Instance.User.Guid}\";
 
@@ -138,6 +143,8 @@ namespace EyeQuiz.UCQuiz
             var filePath = FileHelper.GetFilePath(dirPath, QuestionsBlock.FileName);
 
             XmlHelper.Serialize(filePath, QuestionsBlock);
+
+            MessageBox.Show("Saved.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private bool AddQuestionAndUpdate()
