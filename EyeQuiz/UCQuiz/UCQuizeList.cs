@@ -103,7 +103,8 @@ namespace EyeQuiz.UCQuiz
                 SelectedQuize.BackColor = Color.FromArgb(83, 141, 216);
             }
 
-            panelQuiz.BackColor = Color.FromArgb(137, 251, 162);
+            panelQuiz.BackColor = Color.FromArgb(46, 46, 58);
+            //panelQuiz.BackColor = Color.FromArgb(137, 251, 162);
             SelectedQuize = panelQuiz;
             ButtonStart.Enabled = true;
             TextBoxQuestionCount.Text = String.Empty;
@@ -162,6 +163,7 @@ namespace EyeQuiz.UCQuiz
 
             labelQuizName.Name = $"LabelQuizName{QuizCount}";
             labelQuizName.Text = "Quiz name";
+            labelQuizName.ForeColor = Color.White;
             labelQuizName.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Regular);
             labelQuizName.Location = new Point(30, 68);
             labelQuizName.AutoSize = false;
