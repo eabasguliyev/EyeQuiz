@@ -200,6 +200,7 @@ namespace EyeQuiz.UCQuiz
             this.ButtonLeaderboardsNext.Size = new System.Drawing.Size(251, 45);
             this.ButtonLeaderboardsNext.TabIndex = 3;
             this.ButtonLeaderboardsNext.Text = "Next";
+            this.ButtonLeaderboardsNext.Click += new System.EventHandler(this.ButtonLeaderboardsNext_Click);
             // 
             // label5
             // 
