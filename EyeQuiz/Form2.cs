@@ -92,10 +92,5 @@ namespace EyeQuiz
                 control.Dispose();
             }
         }
-
-        private void PanelUserControls_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

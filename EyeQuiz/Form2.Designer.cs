@@ -55,7 +55,6 @@ namespace EyeQuiz
             this.PanelUserControls.Name = "PanelUserControls";
             this.PanelUserControls.Size = new System.Drawing.Size(941, 655);
             this.PanelUserControls.TabIndex = 9;
-            this.PanelUserControls.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelUserControls_Paint);
             // 
             // PanelFormLeft
             // 
