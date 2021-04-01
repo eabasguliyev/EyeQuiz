@@ -350,5 +350,26 @@
   <ItemGroup>
     <None Include="Resources\decision_26px.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\down_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\up_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\broom_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save_50px.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

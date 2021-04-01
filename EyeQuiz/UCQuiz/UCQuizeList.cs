@@ -437,7 +437,7 @@ namespace EyeQuiz.UCQuiz
             {
                 randomQuestions = randomQuestions.Take(questionCount).ToList();
             }
-            var next = new UCExam() {LastUc = this, Questions = randomQuestions, TotalExamTimeInMinutes = Quizzes[QuizIndex].Questions.Count};
+            var next = new UCExam() {LastUc = this, Questions = randomQuestions, TotalExamTimeInMinutes = randomQuestions.Count};
 
             Form2.Instance.Controls["PanelUserControls"].Controls.Add(next);
             next.BringToFront();

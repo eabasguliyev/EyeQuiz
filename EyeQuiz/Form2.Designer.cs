@@ -32,17 +32,17 @@ namespace EyeQuiz
             this.PanelUserControls = new System.Windows.Forms.Panel();
             this.PanelFormLeft = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.label1 = new System.Windows.Forms.Label();
+            this.PanelFormTop = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.PictureBoxDrag = new System.Windows.Forms.PictureBox();
+            this.PictureBoxMinimize = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ButtonLogout = new Guna.UI2.WinForms.Guna2Button();
             this.ButtonDashboard = new Guna.UI2.WinForms.Guna2Button();
-            this.PictureBoxMinimize = new System.Windows.Forms.PictureBox();
-            this.PictureBoxDrag = new System.Windows.Forms.PictureBox();
-            this.PanelFormTop = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.PanelFormLeft.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxMinimize)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxDrag)).BeginInit();
             this.PanelFormTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxDrag)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxMinimize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelUserControls
@@ -84,6 +84,52 @@ namespace EyeQuiz
             this.label1.TabIndex = 8;
             this.label1.Text = "EyeQuiz";
             // 
+            // PanelFormTop
+            // 
+            this.PanelFormTop.Controls.Add(this.PictureBoxDrag);
+            this.PanelFormTop.Controls.Add(this.PictureBoxMinimize);
+            this.PanelFormTop.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(34)))), ((int)(((byte)(40)))));
+            this.PanelFormTop.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(34)))), ((int)(((byte)(40)))));
+            this.PanelFormTop.FillColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(34)))), ((int)(((byte)(40)))));
+            this.PanelFormTop.FillColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(34)))), ((int)(((byte)(40)))));
+            this.PanelFormTop.Location = new System.Drawing.Point(198, 0);
+            this.PanelFormTop.Name = "PanelFormTop";
+            this.PanelFormTop.ShadowDecoration.Parent = this.PanelFormTop;
+            this.PanelFormTop.Size = new System.Drawing.Size(943, 56);
+            this.PanelFormTop.TabIndex = 10;
+            // 
+            // PictureBoxDrag
+            // 
+            this.PictureBoxDrag.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PictureBoxDrag.BackColor = System.Drawing.Color.Transparent;
+            this.PictureBoxDrag.Cursor = System.Windows.Forms.Cursors.SizeAll;
+            this.PictureBoxDrag.Image = global::EyeQuiz.Properties.Resources.drag_26px;
+            this.PictureBoxDrag.Location = new System.Drawing.Point(852, 12);
+            this.PictureBoxDrag.Name = "PictureBoxDrag";
+            this.PictureBoxDrag.Size = new System.Drawing.Size(36, 33);
+            this.PictureBoxDrag.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PictureBoxDrag.TabIndex = 6;
+            this.PictureBoxDrag.TabStop = false;
+            this.PictureBoxDrag.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureBoxDrag_MouseDown);
+            this.PictureBoxDrag.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PictureBoxDrag_MouseMove);
+            this.PictureBoxDrag.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PictureBoxDrag_MouseUp);
+            // 
+            // PictureBoxMinimize
+            // 
+            this.PictureBoxMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PictureBoxMinimize.BackColor = System.Drawing.Color.Transparent;
+            this.PictureBoxMinimize.Cursor = System.Windows.Forms.Cursors.Default;
+            this.PictureBoxMinimize.Image = global::EyeQuiz.Properties.Resources.macos_minimize_24px;
+            this.PictureBoxMinimize.Location = new System.Drawing.Point(893, 9);
+            this.PictureBoxMinimize.Name = "PictureBoxMinimize";
+            this.PictureBoxMinimize.Size = new System.Drawing.Size(40, 38);
+            this.PictureBoxMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PictureBoxMinimize.TabIndex = 8;
+            this.PictureBoxMinimize.TabStop = false;
+            this.PictureBoxMinimize.Click += new System.EventHandler(this.PictureBoxMinimize_Click);
+            this.PictureBoxMinimize.MouseEnter += new System.EventHandler(this.PictureBoxMinimize_MouseEnter);
+            this.PictureBoxMinimize.MouseLeave += new System.EventHandler(this.PictureBoxMinimize_MouseLeave);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
@@ -105,6 +151,8 @@ namespace EyeQuiz
             this.ButtonLogout.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.ButtonLogout.ForeColor = System.Drawing.Color.White;
             this.ButtonLogout.HoverState.Parent = this.ButtonLogout;
+            this.ButtonLogout.Image = global::EyeQuiz.Properties.Resources.exit_24px;
+            this.ButtonLogout.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.ButtonLogout.Location = new System.Drawing.Point(0, 192);
             this.ButtonLogout.Name = "ButtonLogout";
             this.ButtonLogout.ShadowDecoration.Parent = this.ButtonLogout;
@@ -123,6 +171,8 @@ namespace EyeQuiz
             this.ButtonDashboard.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.ButtonDashboard.ForeColor = System.Drawing.Color.White;
             this.ButtonDashboard.HoverState.Parent = this.ButtonDashboard;
+            this.ButtonDashboard.Image = global::EyeQuiz.Properties.Resources.home_24px;
+            this.ButtonDashboard.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.ButtonDashboard.Location = new System.Drawing.Point(0, 147);
             this.ButtonDashboard.Name = "ButtonDashboard";
             this.ButtonDashboard.ShadowDecoration.Parent = this.ButtonDashboard;
@@ -130,52 +180,6 @@ namespace EyeQuiz
             this.ButtonDashboard.TabIndex = 5;
             this.ButtonDashboard.Text = "Dashboard";
             this.ButtonDashboard.Click += new System.EventHandler(this.ButtonDashboard_Click);
-            // 
-            // PictureBoxMinimize
-            // 
-            this.PictureBoxMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PictureBoxMinimize.BackColor = System.Drawing.Color.Transparent;
-            this.PictureBoxMinimize.Cursor = System.Windows.Forms.Cursors.Default;
-            this.PictureBoxMinimize.Image = global::EyeQuiz.Properties.Resources.macos_minimize_24px;
-            this.PictureBoxMinimize.Location = new System.Drawing.Point(893, 9);
-            this.PictureBoxMinimize.Name = "PictureBoxMinimize";
-            this.PictureBoxMinimize.Size = new System.Drawing.Size(40, 38);
-            this.PictureBoxMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PictureBoxMinimize.TabIndex = 8;
-            this.PictureBoxMinimize.TabStop = false;
-            this.PictureBoxMinimize.Click += new System.EventHandler(this.PictureBoxMinimize_Click);
-            this.PictureBoxMinimize.MouseEnter += new System.EventHandler(this.PictureBoxMinimize_MouseEnter);
-            this.PictureBoxMinimize.MouseLeave += new System.EventHandler(this.PictureBoxMinimize_MouseLeave);
-            // 
-            // PictureBoxDrag
-            // 
-            this.PictureBoxDrag.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PictureBoxDrag.BackColor = System.Drawing.Color.Transparent;
-            this.PictureBoxDrag.Cursor = System.Windows.Forms.Cursors.SizeAll;
-            this.PictureBoxDrag.Image = global::EyeQuiz.Properties.Resources.drag_26px;
-            this.PictureBoxDrag.Location = new System.Drawing.Point(852, 12);
-            this.PictureBoxDrag.Name = "PictureBoxDrag";
-            this.PictureBoxDrag.Size = new System.Drawing.Size(36, 33);
-            this.PictureBoxDrag.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PictureBoxDrag.TabIndex = 6;
-            this.PictureBoxDrag.TabStop = false;
-            this.PictureBoxDrag.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureBoxDrag_MouseDown);
-            this.PictureBoxDrag.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PictureBoxDrag_MouseMove);
-            this.PictureBoxDrag.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PictureBoxDrag_MouseUp);
-            // 
-            // PanelFormTop
-            // 
-            this.PanelFormTop.Controls.Add(this.PictureBoxDrag);
-            this.PanelFormTop.Controls.Add(this.PictureBoxMinimize);
-            this.PanelFormTop.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(34)))), ((int)(((byte)(40)))));
-            this.PanelFormTop.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(34)))), ((int)(((byte)(40)))));
-            this.PanelFormTop.FillColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(34)))), ((int)(((byte)(40)))));
-            this.PanelFormTop.FillColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(34)))), ((int)(((byte)(40)))));
-            this.PanelFormTop.Location = new System.Drawing.Point(198, 0);
-            this.PanelFormTop.Name = "PanelFormTop";
-            this.PanelFormTop.ShadowDecoration.Parent = this.PanelFormTop;
-            this.PanelFormTop.Size = new System.Drawing.Size(943, 56);
-            this.PanelFormTop.TabIndex = 10;
             // 
             // Form2
             // 
@@ -193,10 +197,10 @@ namespace EyeQuiz
             this.Load += new System.EventHandler(this.Form2_Load);
             this.PanelFormLeft.ResumeLayout(false);
             this.PanelFormLeft.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxMinimize)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxDrag)).EndInit();
             this.PanelFormTop.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxDrag)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxMinimize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
